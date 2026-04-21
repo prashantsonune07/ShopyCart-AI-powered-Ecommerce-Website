@@ -1,1 +1,29 @@
-{ 0.000000or product in products 
+{% for product in products %}
+<div class="product-card" data-category="{{ product.category|lower }}">
+  <div class="product-img">
+    <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="lazy"
+         onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80'">
+    <span class="badge">{{ product.category }}</span>
+    <div class="product-actions">
+      <button class="action-btn" onclick="openImage('{{ product.image|escapejs }}','{{ product.product_name|escapejs }}')">👁</button>
+      <button class="action-btn" id="wbtn-{{ product.id }}"
+        onclick="toggleWishlist({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image|escapejs }}',this)">♡</button>
+    </div>
+  </div>
+  <div class="product-info">
+    <div class="product-category">{{ product.category }}</div>
+    <div class="product-name">{{ product.product_name }}</div>
+    <div class="product-price-row">
+      <div><div class="product-price">&#8377;{{ product.price }}</div></div>
+      <button class="add-to-cart"
+        onclick="addToCart({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image|escapejs }}')">+</button>
+    </div>
+  </div>
+</div>
+{% empty %}
+<div style="grid-column:1/-1;text-align:center;padding:64px 20px;color:#6b6b6b">
+  <div style="font-size:56px;margin-bottom:16px">&#128269;</div>
+  <div style="font-size:20px;font-weight:700;color:#0a0a0a;margin-bottom:8px">No products found</div>
+  <div style="font-size:14px">Try selecting a different category</div>
+</div>
+{% endfor %}
