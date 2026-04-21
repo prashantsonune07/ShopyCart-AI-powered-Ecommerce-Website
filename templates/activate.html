@@ -1,8 +1,13 @@
 {% autoescape off %}
 
-Hi {{user.username}}
-Please Click This Link below to verify your account
+Hi {{ user.username }},
 
-http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+Thank you for signing up for ShopyCart!
+
+Please click the link below to activate your account:
+
+{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+If you did not sign up for ShopyCart, please ignore this email.
 
 {% endautoescape %}
