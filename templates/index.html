@@ -2251,7 +2251,7 @@
             {% for product in products %}
             <div class="product-card reveal" data-category="{{ product.category }}">
                 <div class="product-img">
-                    <img src="{{ product.image.url }}" alt="{{ product.product_name }}" loading="lazy">
+                    <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="lazy">
                     <!-- Badge -->
                     <span class="product-badge badge-new">NEW
                     </span>
@@ -2259,10 +2259,10 @@
                     <div class="product-actions">
                         <!-- Wishlist -->
                         <button class="action-btn" title="Wishlist" id="wbtn-{{ product.id }}"
-                            onclick="toggleWishlist({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image.url }}',this)">♡</button>
+                            onclick="toggleWishlist({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image }}',this)">♡</button>
                         <!-- Quick View -->
                         <button class="action-btn" title="Quick View"
-                            onclick="openQV({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image.url }}', '{{ product.category|escapejs }}')">👁
+                            onclick="openQV({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image }}', '{{ product.category|escapejs }}')">👁
                         </button>
                     </div>
                 </div>
@@ -2278,7 +2278,7 @@
                             <span class="product-price-old" style="margin-left:8px"> ₹{{ product.price }}</span>
                         </div>
                         <button class="add-to-cart" onclick="addToCart({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},
-                        '{{ product.image.url }}')" title="Add to cart">+
+                        '{{ product.image }}')" title="Add to cart">+
                         </button>
                     </div>
                 </div>

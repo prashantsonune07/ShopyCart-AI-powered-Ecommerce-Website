@@ -566,11 +566,11 @@
     {% for product in products %}
     <div class="product-card" data-category="{{ product.category|lower }}">
       <div class="product-img">
-        <img src="{{ product.image.url }}" alt="{{ product.product_name }}" loading="lazy">
+        <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="lazy">
         <span class="badge">NEW</span>
         <div class="product-actions">
-          <button class="action-btn" title="View Picture" onclick="openImage('{{ product.image.url|escapejs }}', '{{ product.product_name|escapejs }}')">👁</button>
-          <button class="action-btn" title="Wishlist" id="wbtn-{{ product.id }}" onclick="toggleWishlist({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image.url|escapejs }}', this)">♡</button>
+          <button class="action-btn" title="View Picture" onclick="openImage('{{ product.image|escapejs }}', '{{ product.product_name|escapejs }}')">👁</button>
+          <button class="action-btn" title="Wishlist" id="wbtn-{{ product.id }}" onclick="toggleWishlist({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image|escapejs }}', this)">♡</button>
         </div>
       </div>
       <div class="product-info">
@@ -581,7 +581,7 @@
             <div class="product-price">₹{{ product.price }}</div>
             <div class="product-price-old">₹{{ product.price }}</div>
           </div>
-          <button class="add-to-cart" title="Add to cart" onclick="addToCart({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image.url|escapejs }}')">+</button>
+          <button class="add-to-cart" title="Add to cart" onclick="addToCart({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image|escapejs }}')">+</button>
         </div>
       </div>
     </div>
