@@ -181,3 +181,7 @@ def profile(request):
 
     context = {"items": items, "status": status}
     return render(request, "profile.html", context)
+
+
+def ping(request):
+    return JsonResponse({'status': 'ok'})
