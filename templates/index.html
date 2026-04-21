@@ -2790,6 +2790,19 @@
                 const grid = document.getElementById('serverProductsGrid');
                 if (!grid) return false;
                 grid.innerHTML = data.html;
+
+                // Immediately mark all new cards as visible (don't wait for IntersectionObserver)
+                grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
+                // Force browser to reload images that may have been cached as blank
+                grid.querySelectorAll('img').forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src) {
+                        img.setAttribute('src', '');
+                        img.setAttribute('src', src);
+                    }
+                });
+
                 const url = new URL(window.location.href);
                 if (cat && cat.toLowerCase() !== 'all') {
                     url.searchParams.set('category', cat);
