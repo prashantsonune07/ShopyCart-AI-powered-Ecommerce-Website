@@ -1,156 +1,1850 @@
 [
-{"model": "ecommerceapp.product", "pk": 1, "fields": {"product_name": "DSLR Camera Pro", "category": "Electronics", "subcategory": "Camera", "price": 50000, "desc": "Professional DSLR with 24MP sensor and 4K video recording.", "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 2, "fields": {"product_name": "Airpods Gen 3", "category": "EarBuds", "subcategory": "earbuds", "price": 1000, "desc": "Crystal clear sound with active noise cancellation.", "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 3, "fields": {"product_name": "DSLR Camera High Lens", "category": "Camera", "subcategory": "DSLR", "price": 10000, "desc": "Best high lens Camera for professionals.", "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 4, "fields": {"product_name": "Best Camera", "category": "Camera", "subcategory": "DSLR", "price": 10000, "desc": "Super high lens Camera for stunning shots.", "image": "https://images.unsplash.com/photo-1581591524425-c7e0978865fc?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 5, "fields": {"product_name": "Biconcave Lens", "category": "Camera", "subcategory": "Lens", "price": 5000, "desc": "Premium wide angle biconcave lens.", "image": "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 6, "fields": {"product_name": "Ear Buds Pro", "category": "EarBuds", "subcategory": "earbuds", "price": 599, "desc": "Best Sound Quality with deep bass.", "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 7, "fields": {"product_name": "Boat Airpods", "category": "EarBuds", "subcategory": "earbuds", "price": 999, "desc": "Best Sound Quality by Boat.", "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 8, "fields": {"product_name": "Airpods 2", "category": "EarBuds", "subcategory": "earbuds", "price": 500, "desc": "Lightweight earbuds with 20hr battery.", "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 9, "fields": {"product_name": "Premium Cotton Oversized Tee", "category": "Fashion", "subcategory": "Tshirt", "price": 899, "desc": "A popular fashion pick with strong value for money and quality.", "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 10, "fields": {"product_name": "Wireless Noise Cancelling Headphones", "category": "Electronics", "subcategory": "Headphone", "price": 3500, "desc": "Immersive audio with advanced noise cancellation.", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 11, "fields": {"product_name": "Vitamin C Glow Serum", "category": "Beauty", "subcategory": "Skincare", "price": 999, "desc": "Brightens skin, reduces dark spots, and enhances natural radiance.", "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 12, "fields": {"product_name": "Minimalist Leather Watch", "category": "Fashion", "subcategory": "Watch", "price": 4500, "desc": "A sleek, timeless accessory that blends classic elegance with everyday functionality.", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 13, "fields": {"product_name": "Yoga Mat Premium Anti-Slip", "category": "Sports", "subcategory": "Mat", "price": 2199, "desc": "Superior grip and cushioning for safe, stable workouts.", "image": "https://images.unsplash.com/photo-1601925228231-5e48a6e1d3e6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 14, "fields": {"product_name": "Floral Midi Wrap Dress", "category": "Fashion", "subcategory": "Dress", "price": 2999, "desc": "A flattering, feminine dress perfect for effortless style.", "image": "https://images.unsplash.com/photo-1612722432474-b971cdcea546?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 15, "fields": {"product_name": "Smart Fitness Tracker Band", "category": "Sports", "subcategory": "Wearable", "price": 2199, "desc": "Tracks activity, heart rate, and sleep to keep you on top of fitness goals.", "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 16, "fields": {"product_name": "Mirrorless Camera Sony", "category": "Camera", "subcategory": "Mirrorless", "price": 75000, "desc": "Sony Alpha mirrorless with real-time eye autofocus.", "image": "https://images.unsplash.com/photo-1617885150888-232cb22e1543?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 17, "fields": {"product_name": "Telephoto Zoom Lens", "category": "Camera", "subcategory": "Lens", "price": 18000, "desc": "300mm telephoto zoom for wildlife and sports photography.", "image": "https://images.unsplash.com/photo-1609609668732-b3e0e93ca2c7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 18, "fields": {"product_name": "Camera Shoulder Bag", "category": "Camera", "subcategory": "Accessory", "price": 1499, "desc": "Padded canvas shoulder bag fits DSLR and 2 lenses.", "image": "https://images.unsplash.com/photo-1553322835-bdabbd86a1b1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 19, "fields": {"product_name": "Gorilla Tripod Flexible", "category": "Camera", "subcategory": "Accessory", "price": 799, "desc": "Flexible mini tripod wraps around any surface.", "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 20, "fields": {"product_name": "ND Filter Set", "category": "Camera", "subcategory": "Lens", "price": 2200, "desc": "67mm ND2/4/8/16 filter kit for long exposure photography.", "image": "https://images.unsplash.com/photo-1520390138845-fd2d229dd553?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 21, "fields": {"product_name": "Instax Mini Camera", "category": "Camera", "subcategory": "Instant", "price": 6500, "desc": "Fujifilm Instax Mini, instant print camera for memories.", "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 22, "fields": {"product_name": "Action Camera 4K", "category": "Camera", "subcategory": "Action", "price": 12000, "desc": "Waterproof 4K action camera with image stabilization.", "image": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 23, "fields": {"product_name": "Camera Memory Card 128GB", "category": "Camera", "subcategory": "Accessory", "price": 999, "desc": "High-speed UHS-I 128GB SD card for 4K video.", "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 24, "fields": {"product_name": "Ring Light 18 inch", "category": "Camera", "subcategory": "Lighting", "price": 2499, "desc": "18-inch LED ring light with tripod stand for studio-quality shots.", "image": "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 25, "fields": {"product_name": "Wide Angle Lens Clip", "category": "Camera", "subcategory": "Lens", "price": 499, "desc": "Universal clip-on wide angle lens for smartphones.", "image": "https://images.unsplash.com/photo-1516724562728-afc824a36e84?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 26, "fields": {"product_name": "Drone DJI Mini 3", "category": "Camera", "subcategory": "Drone", "price": 45000, "desc": "Ultra-light drone with 4K HDR camera and 38-min flight time.", "image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 27, "fields": {"product_name": "Camera Cleaning Kit", "category": "Camera", "subcategory": "Accessory", "price": 349, "desc": "Complete 8-piece sensor and lens cleaning kit.", "image": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 28, "fields": {"product_name": "Camera Battery Pack", "category": "Camera", "subcategory": "Accessory", "price": 699, "desc": "High-capacity 2000mAh replacement battery for Canon DSLRs.", "image": "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 29, "fields": {"product_name": "True Wireless Earbuds X1", "category": "EarBuds", "subcategory": "TWS", "price": 1299, "desc": "Active noise cancellation with 30hr total battery life.", "image": "https://images.unsplash.com/photo-1631176093617-59b19c4284ad?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 30, "fields": {"product_name": "Sony WF-1000XM5", "category": "EarBuds", "subcategory": "TWS", "price": 18000, "desc": "Sony flagship earbuds with industry-leading noise cancellation.", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 31, "fields": {"product_name": "Gaming Earphones RGB", "category": "EarBuds", "subcategory": "Gaming", "price": 799, "desc": "7.1 surround sound earphones with RGB lighting.", "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 32, "fields": {"product_name": "Neckband Bluetooth", "category": "EarBuds", "subcategory": "Neckband", "price": 699, "desc": "Magnetic neckband earphones with 20hr playback.", "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 33, "fields": {"product_name": "Open-Ear Sport Earbuds", "category": "EarBuds", "subcategory": "Sport", "price": 2499, "desc": "Open-ear design for situational awareness during outdoor runs.", "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 34, "fields": {"product_name": "Bone Conduction Earphones", "category": "EarBuds", "subcategory": "Sport", "price": 3499, "desc": "Bone conduction technology keeps ears open while you run.", "image": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 35, "fields": {"product_name": "JBL Tune 230 TWS", "category": "EarBuds", "subcategory": "TWS", "price": 2999, "desc": "JBL Pure Bass Sound, 40hr total playback, IP55 rated.", "image": "https://images.unsplash.com/photo-1627384113743-6bd5a479fffd?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 36, "fields": {"product_name": "Kids Wired Earphones", "category": "EarBuds", "subcategory": "Kids", "price": 299, "desc": "Volume-limited safe earphones for kids, colorful design.", "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 37, "fields": {"product_name": "Neckband Sport Waterproof", "category": "EarBuds", "subcategory": "Sport", "price": 899, "desc": "IPX7 waterproof neckband earphones for swimming and gym.", "image": "https://images.unsplash.com/photo-1557174949-8f1e14ff46e4?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 38, "fields": {"product_name": "Earbuds Charging Dock", "category": "EarBuds", "subcategory": "Accessory", "price": 349, "desc": "Dual charging dock compatible with most TWS earbuds.", "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 39, "fields": {"product_name": "Smart LED TV 43 inch", "category": "Electronics", "subcategory": "TV", "price": 28000, "desc": "4K UHD Smart LED TV with Dolby Vision and built-in Alexa.", "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 40, "fields": {"product_name": "Mechanical Keyboard RGB", "category": "Electronics", "subcategory": "Keyboard", "price": 4500, "desc": "TKL mechanical keyboard with Cherry MX switches and RGB backlight.", "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 41, "fields": {"product_name": "Wireless Gaming Mouse", "category": "Electronics", "subcategory": "Mouse", "price": 2999, "desc": "25600 DPI wireless gaming mouse with 70hr battery.", "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 42, "fields": {"product_name": "Portable Bluetooth Speaker", "category": "Electronics", "subcategory": "Speaker", "price": 1999, "desc": "360-degree waterproof Bluetooth speaker, 12hr battery.", "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 43, "fields": {"product_name": "Power Bank 20000mAh", "category": "Electronics", "subcategory": "PowerBank", "price": 1499, "desc": "Slim 20000mAh power bank with 65W PD fast charging.", "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 44, "fields": {"product_name": "USB-C Hub 7-in-1", "category": "Electronics", "subcategory": "Hub", "price": 2499, "desc": "7-in-1 USB-C hub with HDMI 4K, USB 3.0 and SD card reader.", "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 45, "fields": {"product_name": "Smart Home Speaker", "category": "Electronics", "subcategory": "Speaker", "price": 3999, "desc": "Voice-controlled smart speaker with 360-degree room-filling sound.", "image": "https://images.unsplash.com/photo-1512446816042-444d641267d4?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 46, "fields": {"product_name": "Tablet 10 inch", "category": "Electronics", "subcategory": "Tablet", "price": 14999, "desc": "10-inch IPS tablet with 4GB RAM and 128GB storage.", "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 47, "fields": {"product_name": "Laptop Stand Aluminium", "category": "Electronics", "subcategory": "Accessory", "price": 1299, "desc": "Adjustable aluminium laptop stand for ergonomic working.", "image": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 48, "fields": {"product_name": "Webcam 1080p HD", "category": "Electronics", "subcategory": "Webcam", "price": 2199, "desc": "Full HD 1080p webcam with built-in noise-cancelling mic.", "image": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 49, "fields": {"product_name": "Wireless Charger Pad", "category": "Electronics", "subcategory": "Charger", "price": 899, "desc": "15W fast wireless Qi charging pad compatible with all phones.", "image": "https://images.unsplash.com/photo-1586816001966-79b736744398?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 50, "fields": {"product_name": "Noise Cancelling Headset", "category": "Electronics", "subcategory": "Headphone", "price": 5999, "desc": "Over-ear ANC headset with 40hr battery and foldable design.", "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 51, "fields": {"product_name": "Smart Plug WiFi", "category": "Electronics", "subcategory": "SmartHome", "price": 599, "desc": "WiFi smart plug with energy monitoring, works with Alexa.", "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 52, "fields": {"product_name": "VR Headset Standalone", "category": "Electronics", "subcategory": "VR", "price": 22000, "desc": "All-in-one VR headset with 6DOF tracking and 90Hz display.", "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 53, "fields": {"product_name": "Retinol Night Cream", "category": "Beauty", "subcategory": "Skincare", "price": 1299, "desc": "Anti-ageing retinol cream that repairs skin overnight.", "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 54, "fields": {"product_name": "Matte Lipstick Collection", "category": "Beauty", "subcategory": "Makeup", "price": 499, "desc": "Long-lasting matte lipstick in 12 bold shades.", "image": "https://images.unsplash.com/photo-1586495777744-4e6232bf427d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 55, "fields": {"product_name": "Jade Face Roller", "category": "Beauty", "subcategory": "Tool", "price": 699, "desc": "Natural jade roller reduces puffiness and improves circulation.", "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 56, "fields": {"product_name": "Hyaluronic Acid Moisturiser", "category": "Beauty", "subcategory": "Skincare", "price": 849, "desc": "Deep hydration moisturiser with 2% hyaluronic acid.", "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 57, "fields": {"product_name": "Eyeshadow Palette 18 Shades", "category": "Beauty", "subcategory": "Makeup", "price": 1199, "desc": "Highly pigmented 18-shade neutral-to-bold eyeshadow palette.", "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 58, "fields": {"product_name": "Argan Oil Hair Serum", "category": "Beauty", "subcategory": "Haircare", "price": 549, "desc": "Frizz-taming argan oil serum for silky smooth hair.", "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 59, "fields": {"product_name": "Sunscreen SPF 50+", "category": "Beauty", "subcategory": "Skincare", "price": 399, "desc": "Lightweight non-greasy SPF 50+ broad spectrum sunscreen.", "image": "https://images.unsplash.com/photo-1556228578-dd6d6a6a2e0d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 60, "fields": {"product_name": "Rose Water Face Mist", "category": "Beauty", "subcategory": "Skincare", "price": 299, "desc": "Pure rose water mist to refresh and hydrate skin anytime.", "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 61, "fields": {"product_name": "Makeup Brush Set 12pc", "category": "Beauty", "subcategory": "Tool", "price": 799, "desc": "Professional 12-piece synthetic brush set with stand.", "image": "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 62, "fields": {"product_name": "Charcoal Face Mask", "category": "Beauty", "subcategory": "Skincare", "price": 249, "desc": "Deep cleansing charcoal peel-off mask removes blackheads.", "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 63, "fields": {"product_name": "Perfume Floral Musk 50ml", "category": "Beauty", "subcategory": "Fragrance", "price": 1999, "desc": "Elegant floral musk perfume with 12-hour longevity.", "image": "https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 64, "fields": {"product_name": "Nail Polish Set Pastel", "category": "Beauty", "subcategory": "Nails", "price": 349, "desc": "Set of 6 pastel nail polishes, quick dry formula.", "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 65, "fields": {"product_name": "Hair Dryer Pro 2200W", "category": "Beauty", "subcategory": "Haircare", "price": 1899, "desc": "2200W ionic hair dryer with 3 heat settings and diffuser.", "image": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 66, "fields": {"product_name": "Gua Sha Stone", "category": "Beauty", "subcategory": "Tool", "price": 449, "desc": "Rose quartz gua sha for facial sculpting and lymphatic drainage.", "image": "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 67, "fields": {"product_name": "Concealer Full Coverage", "category": "Beauty", "subcategory": "Makeup", "price": 599, "desc": "Buildable full-coverage concealer, 24-hour wear.", "image": "https://images.unsplash.com/photo-1631214524020-3c69db8e6237?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 68, "fields": {"product_name": "Slim Fit Chino Trousers", "category": "Fashion", "subcategory": "Bottomwear", "price": 1299, "desc": "Stretch slim-fit chinos in 8 classic colours.", "image": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 69, "fields": {"product_name": "Leather Bifold Wallet", "category": "Fashion", "subcategory": "Accessory", "price": 799, "desc": "Genuine leather slim bifold wallet with RFID blocking.", "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 70, "fields": {"product_name": "Denim Jacket Classic Blue", "category": "Fashion", "subcategory": "Jacket", "price": 2499, "desc": "Timeless classic-fit denim jacket, stonewashed finish.", "image": "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 71, "fields": {"product_name": "Silk Saree Handwoven", "category": "Fashion", "subcategory": "Ethnic", "price": 5999, "desc": "Handwoven Banarasi silk saree with golden zari border.", "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 72, "fields": {"product_name": "Canvas Tote Bag", "category": "Fashion", "subcategory": "Bag", "price": 499, "desc": "Eco-friendly heavyweight canvas tote with inner pocket.", "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 73, "fields": {"product_name": "Formal Blazer Men", "category": "Fashion", "subcategory": "Formalwear", "price": 3999, "desc": "Single-button slim-fit formal blazer for office and events.", "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 74, "fields": {"product_name": "Sunglasses Aviator", "category": "Fashion", "subcategory": "Accessory", "price": 1299, "desc": "UV400 polarized aviator sunglasses with gold metal frame.", "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 75, "fields": {"product_name": "Crop Top White Ribbed", "category": "Fashion", "subcategory": "Topwear", "price": 599, "desc": "Stretchy ribbed crop top, essential wardrobe staple.", "image": "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 76, "fields": {"product_name": "Bucket Hat Beige", "category": "Fashion", "subcategory": "Accessory", "price": 399, "desc": "Cotton reversible bucket hat, one size fits all.", "image": "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 77, "fields": {"product_name": "Kurta Set Linen", "category": "Fashion", "subcategory": "Ethnic", "price": 1799, "desc": "Premium linen kurta-pyjama set, perfect for festive occasions.", "image": "https://images.unsplash.com/photo-1583394293214-0b3afe1c4d8c?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 78, "fields": {"product_name": "Leather Belt Braided", "category": "Fashion", "subcategory": "Accessory", "price": 499, "desc": "Braided genuine leather belt with silver buckle.", "image": "https://images.unsplash.com/photo-1624623278313-a930126a11c3?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 79, "fields": {"product_name": "Hoodie Oversized Black", "category": "Fashion", "subcategory": "Topwear", "price": 1499, "desc": "Heavyweight fleece oversized hoodie, streetwear essential.", "image": "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 80, "fields": {"product_name": "Badminton Racket Pro", "category": "Sports", "subcategory": "Racket", "price": 1999, "desc": "Carbon fibre badminton racket, pre-strung 26lbs.", "image": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 81, "fields": {"product_name": "Football Nike Premier", "category": "Sports", "subcategory": "Ball", "price": 1299, "desc": "FIFA quality pro football with aerowsculpt technology.", "image": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 82, "fields": {"product_name": "Gym Gloves Leather", "category": "Sports", "subcategory": "Gym", "price": 599, "desc": "Full-palm leather gym gloves with wrist support.", "image": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 83, "fields": {"product_name": "Resistance Bands Set 5pc", "category": "Sports", "subcategory": "Gym", "price": 499, "desc": "Set of 5 latex resistance bands from 10 to 50lbs.", "image": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 84, "fields": {"product_name": "Running Shoes Lightweight", "category": "Sports", "subcategory": "Footwear", "price": 3499, "desc": "Ultra-lightweight mesh running shoes with energy return sole.", "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 85, "fields": {"product_name": "Skipping Rope Steel Wire", "category": "Sports", "subcategory": "Cardio", "price": 349, "desc": "Speed steel wire skipping rope with ball-bearing handles.", "image": "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 86, "fields": {"product_name": "Water Bottle Insulated 1L", "category": "Sports", "subcategory": "Hydration", "price": 799, "desc": "Double-wall vacuum insulated 1L water bottle, keeps cold 24hr.", "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 87, "fields": {"product_name": "Cycling Helmet", "category": "Sports", "subcategory": "Cycling", "price": 1799, "desc": "CPSC certified cycling helmet with 24 ventilation channels.", "image": "https://images.unsplash.com/photo-1571188654248-7a89213915f7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 88, "fields": {"product_name": "Cricket Bat Kashmir Willow", "category": "Sports", "subcategory": "Cricket", "price": 1499, "desc": "Grade-1 Kashmir willow bat, full-size 6 pounds.", "image": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 89, "fields": {"product_name": "Protein Shaker Bottle", "category": "Sports", "subcategory": "Gym", "price": 399, "desc": "BPA-free 700ml blender shaker bottle with mixing ball.", "image": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 90, "fields": {"product_name": "Foam Roller Deep Tissue", "category": "Sports", "subcategory": "Recovery", "price": 899, "desc": "High-density foam roller for deep tissue muscle recovery.", "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 91, "fields": {"product_name": "Sports Compression Tights", "category": "Sports", "subcategory": "Apparel", "price": 1199, "desc": "4-way stretch compression tights for performance and recovery.", "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 92, "fields": {"product_name": "Tennis Racket Carbon", "category": "Sports", "subcategory": "Racket", "price": 2999, "desc": "100% graphite tennis racket, 300g, pre-strung.", "image": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 93, "fields": {"product_name": "Scented Soy Candle Set", "category": "Home", "subcategory": "Decor", "price": 799, "desc": "Set of 3 hand-poured soy candles in lavender, vanilla and cedarwood.", "image": "https://images.unsplash.com/photo-1602874801006-3f19a3ceed3b?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 94, "fields": {"product_name": "Ceramic Coffee Mug Set", "category": "Home", "subcategory": "Kitchen", "price": 599, "desc": "Set of 4 handcrafted ceramic mugs, microwave and dishwasher safe.", "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 95, "fields": {"product_name": "Wall Art Print Nordic", "category": "Home", "subcategory": "Decor", "price": 899, "desc": "Set of 3 minimalist Nordic wall art prints, A4 size.", "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 96, "fields": {"product_name": "Bamboo Storage Organiser", "category": "Home", "subcategory": "Storage", "price": 699, "desc": "Eco-friendly bamboo desktop organiser with 6 compartments.", "image": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 97, "fields": {"product_name": "Throw Pillow Velvet Mustard", "category": "Home", "subcategory": "Bedding", "price": 499, "desc": "Soft velvet throw pillow cover in trending mustard yellow.", "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 98, "fields": {"product_name": "Indoor Plant Pot Terrazzo", "category": "Home", "subcategory": "Decor", "price": 349, "desc": "Handmade terrazzo plant pot with drainage hole, 6-inch.", "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 99, "fields": {"product_name": "Bedsheet Set King 400TC", "category": "Home", "subcategory": "Bedding", "price": 1999, "desc": "400 thread count 100% Egyptian cotton king-size bedsheet set.", "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 100, "fields": {"product_name": "Kitchen Knife Set 5pc", "category": "Home", "subcategory": "Kitchen", "price": 1499, "desc": "German steel 5-piece kitchen knife set with wooden block.", "image": "https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 101, "fields": {"product_name": "Reed Diffuser Oud", "category": "Home", "subcategory": "Fragrance", "price": 599, "desc": "Luxury oud reed diffuser, fills room with fragrance for 60 days.", "image": "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 102, "fields": {"product_name": "String Fairy Lights 10m", "category": "Home", "subcategory": "Lighting", "price": 399, "desc": "10m warm-white LED fairy lights, USB powered.", "image": "https://images.unsplash.com/photo-1545259742-56b53b23f0b2?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 103, "fields": {"product_name": "Macrame Wall Hanging", "category": "Home", "subcategory": "Decor", "price": 849, "desc": "Handmade boho macrame wall hanging, 60cm wide.", "image": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 104, "fields": {"product_name": "Cast Iron Skillet 10 inch", "category": "Home", "subcategory": "Kitchen", "price": 1299, "desc": "Pre-seasoned cast iron skillet, oven safe up to 500F.", "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 105, "fields": {"product_name": "Bathroom Towel Set 4pc", "category": "Home", "subcategory": "Bath", "price": 1099, "desc": "100% combed cotton towel set, 650GSM ultra-absorbent.", "image": "https://images.unsplash.com/photo-1583845112203-29329902332e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 106, "fields": {"product_name": "Photo Frame Collage 6-in-1", "category": "Home", "subcategory": "Decor", "price": 699, "desc": "Rustic wood 6-frame collage for living room wall.", "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 107, "fields": {"product_name": "Air Fryer 4L Digital", "category": "Home", "subcategory": "Appliance", "price": 4999, "desc": "4-litre digital air fryer, 8 presets, 1500W rapid heat.", "image": "https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 108, "fields": {"product_name": "Jute Woven Basket", "category": "Home", "subcategory": "Storage", "price": 449, "desc": "Handwoven jute storage basket, perfect for blankets and toys.", "image": "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 109, "fields": {"product_name": "White Sneakers Classic", "category": "Footwear", "subcategory": "Casual", "price": 2499, "desc": "Minimalist white leather sneakers with cushioned sole.", "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 110, "fields": {"product_name": "Chelsea Boots Brown Leather", "category": "Footwear", "subcategory": "Boots", "price": 3999, "desc": "Genuine leather Chelsea boots with elastic side panels.", "image": "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 111, "fields": {"product_name": "Kolhapuri Chappals", "category": "Footwear", "subcategory": "Ethnic", "price": 899, "desc": "Handcrafted traditional Kolhapuri leather chappals.", "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 112, "fields": {"product_name": "Slip-On Loafers Suede", "category": "Footwear", "subcategory": "Casual", "price": 1799, "desc": "Suede slip-on loafers with memory foam insole.", "image": "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 113, "fields": {"product_name": "Heeled Sandals Strappy", "category": "Footwear", "subcategory": "Heels", "price": 1499, "desc": "Strappy block heel sandals, ideal for parties and events.", "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 114, "fields": {"product_name": "Flip Flops EVA Comfort", "category": "Footwear", "subcategory": "Slippers", "price": 349, "desc": "Lightweight EVA flip flops with arch support.", "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 115, "fields": {"product_name": "High-Top Basketball Shoes", "category": "Footwear", "subcategory": "Sport", "price": 4499, "desc": "High-top basketball shoes with ankle support and grippy outsole.", "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 116, "fields": {"product_name": "Oxford Formal Shoes", "category": "Footwear", "subcategory": "Formal", "price": 2999, "desc": "Genuine leather Oxford shoes with hand-stitched detailing.", "image": "https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 117, "fields": {"product_name": "Ankle Boots Women Black", "category": "Footwear", "subcategory": "Boots", "price": 2499, "desc": "Faux leather ankle boots with side zipper closure.", "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 118, "fields": {"product_name": "Trail Running Shoes", "category": "Footwear", "subcategory": "Sport", "price": 3299, "desc": "Waterproof Gore-Tex trail running shoes with rock plate.", "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 119, "fields": {"product_name": "Moccasin Slippers Indoor", "category": "Footwear", "subcategory": "Slippers", "price": 599, "desc": "Cosy sherpa-lined moccasin slippers for home wear.", "image": "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 120, "fields": {"product_name": "Platform Chunky Sneakers", "category": "Footwear", "subcategory": "Casual", "price": 2799, "desc": "90s-inspired chunky platform sneakers, extra 5cm height.", "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 121, "fields": {"product_name": "Wedge Espadrilles", "category": "Footwear", "subcategory": "Casual", "price": 1299, "desc": "Jute platform wedge espadrilles in natural tan.", "image": "https://images.unsplash.com/photo-1566479179817-0b09b96b4849?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 122, "fields": {"product_name": "Sneaker Cleaning Kit", "category": "Footwear", "subcategory": "Accessory", "price": 299, "desc": "Complete sneaker cleaning kit with brush, foam and cloth.", "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 123, "fields": {"product_name": "Insoles Memory Foam", "category": "Footwear", "subcategory": "Accessory", "price": 249, "desc": "Orthopedic memory foam insoles for all-day comfort.", "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 124, "fields": {"product_name": "PS5 DualSense Controller", "category": "Gaming", "subcategory": "Controller", "price": 5999, "desc": "Official PS5 DualSense wireless controller with haptic feedback.", "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 125, "fields": {"product_name": "Gaming Chair Ergonomic", "category": "Gaming", "subcategory": "Furniture", "price": 12999, "desc": "Racing-style gaming chair with lumbar support and 4D armrests.", "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 126, "fields": {"product_name": "Gaming Monitor 144Hz 27 inch", "category": "Gaming", "subcategory": "Monitor", "price": 18999, "desc": "27-inch IPS 144Hz gaming monitor with 1ms response time.", "image": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 127, "fields": {"product_name": "Xbox Wireless Controller", "category": "Gaming", "subcategory": "Controller", "price": 5499, "desc": "Xbox Series X wireless controller with textured grip.", "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 128, "fields": {"product_name": "Gaming Headset 7.1 Surround", "category": "Gaming", "subcategory": "Audio", "price": 3499, "desc": "Virtual 7.1 surround sound gaming headset with RGB lighting.", "image": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 129, "fields": {"product_name": "Gaming Mousepad XL", "category": "Gaming", "subcategory": "Accessory", "price": 699, "desc": "900x400mm extended gaming mousepad with anti-slip rubber base.", "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 130, "fields": {"product_name": "Retro Mini Console 500 Games", "category": "Gaming", "subcategory": "Console", "price": 2999, "desc": "Retro mini console with 500 built-in classic games.", "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 131, "fields": {"product_name": "Gaming Capture Card 4K", "category": "Gaming", "subcategory": "Accessory", "price": 4999, "desc": "4K 60fps capture card for streaming and recording gameplay.", "image": "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 132, "fields": {"product_name": "RGB LED Strip 5m", "category": "Gaming", "subcategory": "Lighting", "price": 499, "desc": "5m RGB LED strip with app control for gaming room setup.", "image": "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 133, "fields": {"product_name": "Nintendo Switch Carry Case", "category": "Gaming", "subcategory": "Accessory", "price": 799, "desc": "Hard shell protective carrying case for Nintendo Switch.", "image": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 134, "fields": {"product_name": "L-Shaped Gaming Desk", "category": "Gaming", "subcategory": "Furniture", "price": 8999, "desc": "L-shaped gaming desk with built-in cable management and LED.", "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 135, "fields": {"product_name": "PC Cooling Fan RGB 120mm", "category": "Gaming", "subcategory": "PC Part", "price": 899, "desc": "120mm addressable RGB case fan, 1500RPM quiet operation.", "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 136, "fields": {"product_name": "Gaming Steering Wheel", "category": "Gaming", "subcategory": "Controller", "price": 7999, "desc": "Force feedback steering wheel with pedals for racing games.", "image": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 137, "fields": {"product_name": "Compact Mechanical Keyboard", "category": "Gaming", "subcategory": "Keyboard", "price": 3299, "desc": "60% compact mechanical gaming keyboard, hot-swappable switches.", "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 138, "fields": {"product_name": "VR Gaming Controllers", "category": "Gaming", "subcategory": "Controller", "price": 3999, "desc": "6DOF VR motion controllers compatible with major VR headsets.", "image": "https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 139, "fields": {"product_name": "Cold Brew Coffee Kit", "category": "Food", "subcategory": "Coffee", "price": 1299, "desc": "Premium Arabica cold brew coffee kit with mason jar and filter.", "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 140, "fields": {"product_name": "Artisan Dark Chocolate Box", "category": "Food", "subcategory": "Chocolate", "price": 899, "desc": "Handcrafted 70% cacao dark chocolate assortment, 12 pieces.", "image": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 141, "fields": {"product_name": "Organic Green Tea 100g", "category": "Food", "subcategory": "Tea", "price": 499, "desc": "Single-origin Darjeeling green tea, first flush harvest.", "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 142, "fields": {"product_name": "Gourmet Spice Gift Set", "category": "Food", "subcategory": "Spices", "price": 799, "desc": "8 premium spices from Kerala in artisan glass jars.", "image": "https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 143, "fields": {"product_name": "Himalayan Raw Honey 500g", "category": "Food", "subcategory": "Honey", "price": 649, "desc": "Wild raw Himalayan honey, unprocessed and naturally harvested.", "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 144, "fields": {"product_name": "Korean Spicy Ramen Pack 5x", "category": "Food", "subcategory": "Noodles", "price": 249, "desc": "Korean-style spicy instant ramen, pack of 5.", "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 145, "fields": {"product_name": "Honey Granola Clusters 400g", "category": "Food", "subcategory": "Breakfast", "price": 449, "desc": "Honey-roasted granola clusters with almonds and cranberries.", "image": "https://images.unsplash.com/photo-1517093157641-c076d5294fe7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 146, "fields": {"product_name": "Extra Virgin Olive Oil 500ml", "category": "Food", "subcategory": "Oils", "price": 899, "desc": "Cold-pressed Italian extra virgin olive oil, DOP certified.", "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 147, "fields": {"product_name": "Mixed Nuts Premium 250g", "category": "Food", "subcategory": "Snacks", "price": 599, "desc": "Roasted salted mixed nuts, almonds, cashews, walnuts, pistachios.", "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 148, "fields": {"product_name": "Protein Bar Box 12pc", "category": "Food", "subcategory": "Health", "price": 1199, "desc": "20g protein, low sugar, gluten-free protein bars, box of 12.", "image": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 149, "fields": {"product_name": "Ceremonial Matcha Powder 50g", "category": "Food", "subcategory": "Tea", "price": 749, "desc": "Ceremonial grade Japanese matcha powder from Uji, Kyoto.", "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 150, "fields": {"product_name": "Pure Desi Ghee 500ml", "category": "Food", "subcategory": "Dairy", "price": 699, "desc": "Hand-churned A2 cow ghee from grass-fed cows.", "image": "https://images.unsplash.com/photo-1559181567-c3190ca9d222?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 151, "fields": {"product_name": "Crunchy Peanut Butter 1kg", "category": "Food", "subcategory": "Spreads", "price": 549, "desc": "100% natural crunchy peanut butter, no sugar no palm oil.", "image": "https://images.unsplash.com/photo-1604928141064-207ceac0499e?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 152, "fields": {"product_name": "Kashmiri Saffron 2g", "category": "Food", "subcategory": "Spices", "price": 499, "desc": "Premium Grade-1 Kashmiri saffron, hand-picked threads.", "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 153, "fields": {"product_name": "Kombucha Starter Kit", "category": "Food", "subcategory": "Health", "price": 1099, "desc": "DIY kombucha brewing kit with SCOBY, tea and glass jar.", "image": "https://images.unsplash.com/photo-1500353391678-d7b57979d6d2?w=400&q=80"}},
-{"model": "ecommerceapp.product", "pk": 154, "fields": {"product_name": "Sourdough Bread Mix 500g", "category": "Food", "subcategory": "Baking", "price": 349, "desc": "Ready-to-use sourdough bread mix with live starter culture.", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80"}}
+  {
+    "model": "ecommerceapp.product",
+    "pk": 1,
+    "fields": {
+      "product_name": "DSLR Camera Pro",
+      "category": "Electronics",
+      "subcategory": "Camera",
+      "price": 50000,
+      "desc": "Professional DSLR with 24MP sensor and 4K video recording.",
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Airpods Gen 3",
+      "category": "EarBuds",
+      "subcategory": "earbuds",
+      "price": 1000,
+      "desc": "Crystal clear sound with active noise cancellation.",
+      "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 3,
+    "fields": {
+      "product_name": "DSLR Camera High Lens",
+      "category": "Camera",
+      "subcategory": "DSLR",
+      "price": 10000,
+      "desc": "Best high lens Camera for professionals.",
+      "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 4,
+    "fields": {
+      "product_name": "Best Camera",
+      "category": "Camera",
+      "subcategory": "DSLR",
+      "price": 10000,
+      "desc": "Super high lens Camera for stunning shots.",
+      "image": "https://images.unsplash.com/photo-1581591524425-c7e0978865fc?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 5,
+    "fields": {
+      "product_name": "Biconcave Lens",
+      "category": "Camera",
+      "subcategory": "Lens",
+      "price": 5000,
+      "desc": "Premium wide angle biconcave lens.",
+      "image": "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 6,
+    "fields": {
+      "product_name": "Ear Buds Pro",
+      "category": "EarBuds",
+      "subcategory": "earbuds",
+      "price": 599,
+      "desc": "Best Sound Quality with deep bass.",
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 7,
+    "fields": {
+      "product_name": "Boat Airpods",
+      "category": "EarBuds",
+      "subcategory": "earbuds",
+      "price": 999,
+      "desc": "Best Sound Quality by Boat.",
+      "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 8,
+    "fields": {
+      "product_name": "Airpods 2",
+      "category": "EarBuds",
+      "subcategory": "earbuds",
+      "price": 500,
+      "desc": "Lightweight earbuds with 20hr battery.",
+      "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 9,
+    "fields": {
+      "product_name": "Premium Cotton Oversized Tee",
+      "category": "Fashion",
+      "subcategory": "Tshirt",
+      "price": 899,
+      "desc": "A popular fashion pick with strong value for money and quality.",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 10,
+    "fields": {
+      "product_name": "Wireless Noise Cancelling Headphones",
+      "category": "Electronics",
+      "subcategory": "Headphone",
+      "price": 3500,
+      "desc": "Immersive audio with advanced noise cancellation.",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 11,
+    "fields": {
+      "product_name": "Vitamin C Glow Serum",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 999,
+      "desc": "Brightens skin, reduces dark spots, and enhances natural radiance.",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 12,
+    "fields": {
+      "product_name": "Minimalist Leather Watch",
+      "category": "Fashion",
+      "subcategory": "Watch",
+      "price": 4500,
+      "desc": "A sleek, timeless accessory that blends classic elegance with everyday functionality.",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 13,
+    "fields": {
+      "product_name": "Yoga Mat Premium Anti-Slip",
+      "category": "Sports",
+      "subcategory": "Mat",
+      "price": 2199,
+      "desc": "Superior grip and cushioning for safe, stable workouts.",
+      "image": "https://images.unsplash.com/photo-1601925228231-5e48a6e1d3e6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 14,
+    "fields": {
+      "product_name": "Floral Midi Wrap Dress",
+      "category": "Fashion",
+      "subcategory": "Dress",
+      "price": 2999,
+      "desc": "A flattering, feminine dress perfect for effortless style.",
+      "image": "https://images.unsplash.com/photo-1612722432474-b971cdcea546?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 15,
+    "fields": {
+      "product_name": "Smart Fitness Tracker Band",
+      "category": "Sports",
+      "subcategory": "Wearable",
+      "price": 2199,
+      "desc": "Tracks activity, heart rate, and sleep to keep you on top of fitness goals.",
+      "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 16,
+    "fields": {
+      "product_name": "Mirrorless Camera Sony",
+      "category": "Camera",
+      "subcategory": "Mirrorless",
+      "price": 75000,
+      "desc": "Sony Alpha mirrorless with real-time eye autofocus.",
+      "image": "https://images.unsplash.com/photo-1617885150888-232cb22e1543?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 17,
+    "fields": {
+      "product_name": "Telephoto Zoom Lens",
+      "category": "Camera",
+      "subcategory": "Lens",
+      "price": 18000,
+      "desc": "300mm telephoto zoom for wildlife and sports photography.",
+      "image": "https://images.unsplash.com/photo-1609609668732-b3e0e93ca2c7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 18,
+    "fields": {
+      "product_name": "Camera Shoulder Bag",
+      "category": "Camera",
+      "subcategory": "Accessory",
+      "price": 1499,
+      "desc": "Padded canvas shoulder bag fits DSLR and 2 lenses.",
+      "image": "https://images.unsplash.com/photo-1553322835-bdabbd86a1b1?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 19,
+    "fields": {
+      "product_name": "Gorilla Tripod Flexible",
+      "category": "Camera",
+      "subcategory": "Accessory",
+      "price": 799,
+      "desc": "Flexible mini tripod wraps around any surface.",
+      "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 20,
+    "fields": {
+      "product_name": "ND Filter Set",
+      "category": "Camera",
+      "subcategory": "Lens",
+      "price": 2200,
+      "desc": "67mm ND2/4/8/16 filter kit for long exposure photography.",
+      "image": "https://images.unsplash.com/photo-1520390138845-fd2d229dd553?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 21,
+    "fields": {
+      "product_name": "Instax Mini Camera",
+      "category": "Camera",
+      "subcategory": "Instant",
+      "price": 6500,
+      "desc": "Fujifilm Instax Mini, instant print camera for memories.",
+      "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 22,
+    "fields": {
+      "product_name": "Action Camera 4K",
+      "category": "Camera",
+      "subcategory": "Action",
+      "price": 12000,
+      "desc": "Waterproof 4K action camera with image stabilization.",
+      "image": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 23,
+    "fields": {
+      "product_name": "Camera Memory Card 128GB",
+      "category": "Camera",
+      "subcategory": "Accessory",
+      "price": 999,
+      "desc": "High-speed UHS-I 128GB SD card for 4K video.",
+      "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 24,
+    "fields": {
+      "product_name": "Ring Light 18 inch",
+      "category": "Camera",
+      "subcategory": "Lighting",
+      "price": 2499,
+      "desc": "18-inch LED ring light with tripod stand for studio-quality shots.",
+      "image": "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 25,
+    "fields": {
+      "product_name": "Wide Angle Lens Clip",
+      "category": "Camera",
+      "subcategory": "Lens",
+      "price": 499,
+      "desc": "Universal clip-on wide angle lens for smartphones.",
+      "image": "https://images.unsplash.com/photo-1516724562728-afc824a36e84?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 26,
+    "fields": {
+      "product_name": "Drone DJI Mini 3",
+      "category": "Camera",
+      "subcategory": "Drone",
+      "price": 45000,
+      "desc": "Ultra-light drone with 4K HDR camera and 38-min flight time.",
+      "image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 27,
+    "fields": {
+      "product_name": "Camera Cleaning Kit",
+      "category": "Camera",
+      "subcategory": "Accessory",
+      "price": 349,
+      "desc": "Complete 8-piece sensor and lens cleaning kit.",
+      "image": "https://images.unsplash.com/photo-1589792923962-537704632910?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 28,
+    "fields": {
+      "product_name": "Camera Battery Pack",
+      "category": "Camera",
+      "subcategory": "Accessory",
+      "price": 699,
+      "desc": "High-capacity 2000mAh replacement battery for Canon DSLRs.",
+      "image": "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 29,
+    "fields": {
+      "product_name": "True Wireless Earbuds X1",
+      "category": "EarBuds",
+      "subcategory": "TWS",
+      "price": 1299,
+      "desc": "Active noise cancellation with 30hr total battery life.",
+      "image": "https://images.unsplash.com/photo-1631176093617-59b19c4284ad?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 30,
+    "fields": {
+      "product_name": "Sony WF-1000XM5",
+      "category": "EarBuds",
+      "subcategory": "TWS",
+      "price": 18000,
+      "desc": "Sony flagship earbuds with industry-leading noise cancellation.",
+      "image": "https://images.unsplash.com/photo-1610438235354-a6ae5528385c?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 31,
+    "fields": {
+      "product_name": "Gaming Earphones RGB",
+      "category": "EarBuds",
+      "subcategory": "Gaming",
+      "price": 799,
+      "desc": "7.1 surround sound earphones with RGB lighting.",
+      "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 32,
+    "fields": {
+      "product_name": "Neckband Bluetooth",
+      "category": "EarBuds",
+      "subcategory": "Neckband",
+      "price": 699,
+      "desc": "Magnetic neckband earphones with 20hr playback.",
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 33,
+    "fields": {
+      "product_name": "Open-Ear Sport Earbuds",
+      "category": "EarBuds",
+      "subcategory": "Sport",
+      "price": 2499,
+      "desc": "Open-ear design for situational awareness during outdoor runs.",
+      "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 34,
+    "fields": {
+      "product_name": "Bone Conduction Earphones",
+      "category": "EarBuds",
+      "subcategory": "Sport",
+      "price": 3499,
+      "desc": "Bone conduction technology keeps ears open while you run.",
+      "image": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 35,
+    "fields": {
+      "product_name": "JBL Tune 230 TWS",
+      "category": "EarBuds",
+      "subcategory": "TWS",
+      "price": 2999,
+      "desc": "JBL Pure Bass Sound, 40hr total playback, IP55 rated.",
+      "image": "https://images.unsplash.com/photo-1627384113743-6bd5a479fffd?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 36,
+    "fields": {
+      "product_name": "Kids Wired Earphones",
+      "category": "EarBuds",
+      "subcategory": "Kids",
+      "price": 299,
+      "desc": "Volume-limited safe earphones for kids, colorful design.",
+      "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 37,
+    "fields": {
+      "product_name": "Neckband Sport Waterproof",
+      "category": "EarBuds",
+      "subcategory": "Sport",
+      "price": 899,
+      "desc": "IPX7 waterproof neckband earphones for swimming and gym.",
+      "image": "https://images.unsplash.com/photo-1557174949-8f1e14ff46e4?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 38,
+    "fields": {
+      "product_name": "Earbuds Charging Dock",
+      "category": "EarBuds",
+      "subcategory": "Accessory",
+      "price": 349,
+      "desc": "Dual charging dock compatible with most TWS earbuds.",
+      "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 39,
+    "fields": {
+      "product_name": "Smart LED TV 43 inch",
+      "category": "Electronics",
+      "subcategory": "TV",
+      "price": 28000,
+      "desc": "4K UHD Smart LED TV with Dolby Vision and built-in Alexa.",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 40,
+    "fields": {
+      "product_name": "Mechanical Keyboard RGB",
+      "category": "Electronics",
+      "subcategory": "Keyboard",
+      "price": 4500,
+      "desc": "TKL mechanical keyboard with Cherry MX switches and RGB backlight.",
+      "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 41,
+    "fields": {
+      "product_name": "Wireless Gaming Mouse",
+      "category": "Electronics",
+      "subcategory": "Mouse",
+      "price": 2999,
+      "desc": "25600 DPI wireless gaming mouse with 70hr battery.",
+      "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 42,
+    "fields": {
+      "product_name": "Portable Bluetooth Speaker",
+      "category": "Electronics",
+      "subcategory": "Speaker",
+      "price": 1999,
+      "desc": "360-degree waterproof Bluetooth speaker, 12hr battery.",
+      "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 43,
+    "fields": {
+      "product_name": "Power Bank 20000mAh",
+      "category": "Electronics",
+      "subcategory": "PowerBank",
+      "price": 1499,
+      "desc": "Slim 20000mAh power bank with 65W PD fast charging.",
+      "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 44,
+    "fields": {
+      "product_name": "USB-C Hub 7-in-1",
+      "category": "Electronics",
+      "subcategory": "Hub",
+      "price": 2499,
+      "desc": "7-in-1 USB-C hub with HDMI 4K, USB 3.0 and SD card reader.",
+      "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 45,
+    "fields": {
+      "product_name": "Smart Home Speaker",
+      "category": "Electronics",
+      "subcategory": "Speaker",
+      "price": 3999,
+      "desc": "Voice-controlled smart speaker with 360-degree room-filling sound.",
+      "image": "https://images.unsplash.com/photo-1512446816042-444d641267d4?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 46,
+    "fields": {
+      "product_name": "Tablet 10 inch",
+      "category": "Electronics",
+      "subcategory": "Tablet",
+      "price": 14999,
+      "desc": "10-inch IPS tablet with 4GB RAM and 128GB storage.",
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 47,
+    "fields": {
+      "product_name": "Laptop Stand Aluminium",
+      "category": "Electronics",
+      "subcategory": "Accessory",
+      "price": 1299,
+      "desc": "Adjustable aluminium laptop stand for ergonomic working.",
+      "image": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 48,
+    "fields": {
+      "product_name": "Webcam 1080p HD",
+      "category": "Electronics",
+      "subcategory": "Webcam",
+      "price": 2199,
+      "desc": "Full HD 1080p webcam with built-in noise-cancelling mic.",
+      "image": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 49,
+    "fields": {
+      "product_name": "Wireless Charger Pad",
+      "category": "Electronics",
+      "subcategory": "Charger",
+      "price": 899,
+      "desc": "15W fast wireless Qi charging pad compatible with all phones.",
+      "image": "https://images.unsplash.com/photo-1586816001966-79b736744398?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 50,
+    "fields": {
+      "product_name": "Noise Cancelling Headset",
+      "category": "Electronics",
+      "subcategory": "Headphone",
+      "price": 5999,
+      "desc": "Over-ear ANC headset with 40hr battery and foldable design.",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 51,
+    "fields": {
+      "product_name": "Smart Plug WiFi",
+      "category": "Electronics",
+      "subcategory": "SmartHome",
+      "price": 599,
+      "desc": "WiFi smart plug with energy monitoring, works with Alexa.",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 52,
+    "fields": {
+      "product_name": "VR Headset Standalone",
+      "category": "Electronics",
+      "subcategory": "VR",
+      "price": 22000,
+      "desc": "All-in-one VR headset with 6DOF tracking and 90Hz display.",
+      "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 53,
+    "fields": {
+      "product_name": "Retinol Night Cream",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 1299,
+      "desc": "Anti-ageing retinol cream that repairs skin overnight.",
+      "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 54,
+    "fields": {
+      "product_name": "Matte Lipstick Collection",
+      "category": "Beauty",
+      "subcategory": "Makeup",
+      "price": 499,
+      "desc": "Long-lasting matte lipstick in 12 bold shades.",
+      "image": "https://images.unsplash.com/photo-1586495777744-4e6232bf427d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 55,
+    "fields": {
+      "product_name": "Jade Face Roller",
+      "category": "Beauty",
+      "subcategory": "Tool",
+      "price": 699,
+      "desc": "Natural jade roller reduces puffiness and improves circulation.",
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 56,
+    "fields": {
+      "product_name": "Hyaluronic Acid Moisturiser",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 849,
+      "desc": "Deep hydration moisturiser with 2% hyaluronic acid.",
+      "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 57,
+    "fields": {
+      "product_name": "Eyeshadow Palette 18 Shades",
+      "category": "Beauty",
+      "subcategory": "Makeup",
+      "price": 1199,
+      "desc": "Highly pigmented 18-shade neutral-to-bold eyeshadow palette.",
+      "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 58,
+    "fields": {
+      "product_name": "Argan Oil Hair Serum",
+      "category": "Beauty",
+      "subcategory": "Haircare",
+      "price": 549,
+      "desc": "Frizz-taming argan oil serum for silky smooth hair.",
+      "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 59,
+    "fields": {
+      "product_name": "Sunscreen SPF 50+",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 399,
+      "desc": "Lightweight non-greasy SPF 50+ broad spectrum sunscreen.",
+      "image": "https://images.unsplash.com/photo-1556228578-dd6d6a6a2e0d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 60,
+    "fields": {
+      "product_name": "Rose Water Face Mist",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 299,
+      "desc": "Pure rose water mist to refresh and hydrate skin anytime.",
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 61,
+    "fields": {
+      "product_name": "Makeup Brush Set 12pc",
+      "category": "Beauty",
+      "subcategory": "Tool",
+      "price": 799,
+      "desc": "Professional 12-piece synthetic brush set with stand.",
+      "image": "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 62,
+    "fields": {
+      "product_name": "Charcoal Face Mask",
+      "category": "Beauty",
+      "subcategory": "Skincare",
+      "price": 249,
+      "desc": "Deep cleansing charcoal peel-off mask removes blackheads.",
+      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 63,
+    "fields": {
+      "product_name": "Perfume Floral Musk 50ml",
+      "category": "Beauty",
+      "subcategory": "Fragrance",
+      "price": 1999,
+      "desc": "Elegant floral musk perfume with 12-hour longevity.",
+      "image": "https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 64,
+    "fields": {
+      "product_name": "Nail Polish Set Pastel",
+      "category": "Beauty",
+      "subcategory": "Nails",
+      "price": 349,
+      "desc": "Set of 6 pastel nail polishes, quick dry formula.",
+      "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 65,
+    "fields": {
+      "product_name": "Hair Dryer Pro 2200W",
+      "category": "Beauty",
+      "subcategory": "Haircare",
+      "price": 1899,
+      "desc": "2200W ionic hair dryer with 3 heat settings and diffuser.",
+      "image": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 66,
+    "fields": {
+      "product_name": "Gua Sha Stone",
+      "category": "Beauty",
+      "subcategory": "Tool",
+      "price": 449,
+      "desc": "Rose quartz gua sha for facial sculpting and lymphatic drainage.",
+      "image": "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 67,
+    "fields": {
+      "product_name": "Concealer Full Coverage",
+      "category": "Beauty",
+      "subcategory": "Makeup",
+      "price": 599,
+      "desc": "Buildable full-coverage concealer, 24-hour wear.",
+      "image": "https://images.unsplash.com/photo-1631214524020-3c69db8e6237?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 68,
+    "fields": {
+      "product_name": "Slim Fit Chino Trousers",
+      "category": "Fashion",
+      "subcategory": "Bottomwear",
+      "price": 1299,
+      "desc": "Stretch slim-fit chinos in 8 classic colours.",
+      "image": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 69,
+    "fields": {
+      "product_name": "Leather Bifold Wallet",
+      "category": "Fashion",
+      "subcategory": "Accessory",
+      "price": 799,
+      "desc": "Genuine leather slim bifold wallet with RFID blocking.",
+      "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 70,
+    "fields": {
+      "product_name": "Denim Jacket Classic Blue",
+      "category": "Fashion",
+      "subcategory": "Jacket",
+      "price": 2499,
+      "desc": "Timeless classic-fit denim jacket, stonewashed finish.",
+      "image": "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 71,
+    "fields": {
+      "product_name": "Silk Saree Handwoven",
+      "category": "Fashion",
+      "subcategory": "Ethnic",
+      "price": 5999,
+      "desc": "Handwoven Banarasi silk saree with golden zari border.",
+      "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 72,
+    "fields": {
+      "product_name": "Canvas Tote Bag",
+      "category": "Fashion",
+      "subcategory": "Bag",
+      "price": 499,
+      "desc": "Eco-friendly heavyweight canvas tote with inner pocket.",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 73,
+    "fields": {
+      "product_name": "Formal Blazer Men",
+      "category": "Fashion",
+      "subcategory": "Formalwear",
+      "price": 3999,
+      "desc": "Single-button slim-fit formal blazer for office and events.",
+      "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 74,
+    "fields": {
+      "product_name": "Sunglasses Aviator",
+      "category": "Fashion",
+      "subcategory": "Accessory",
+      "price": 1299,
+      "desc": "UV400 polarized aviator sunglasses with gold metal frame.",
+      "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 75,
+    "fields": {
+      "product_name": "Crop Top White Ribbed",
+      "category": "Fashion",
+      "subcategory": "Topwear",
+      "price": 599,
+      "desc": "Stretchy ribbed crop top, essential wardrobe staple.",
+      "image": "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 76,
+    "fields": {
+      "product_name": "Bucket Hat Beige",
+      "category": "Fashion",
+      "subcategory": "Accessory",
+      "price": 399,
+      "desc": "Cotton reversible bucket hat, one size fits all.",
+      "image": "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 77,
+    "fields": {
+      "product_name": "Kurta Set Linen",
+      "category": "Fashion",
+      "subcategory": "Ethnic",
+      "price": 1799,
+      "desc": "Premium linen kurta-pyjama set, perfect for festive occasions.",
+      "image": "https://images.unsplash.com/photo-1583394293214-0b3afe1c4d8c?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 78,
+    "fields": {
+      "product_name": "Leather Belt Braided",
+      "category": "Fashion",
+      "subcategory": "Accessory",
+      "price": 499,
+      "desc": "Braided genuine leather belt with silver buckle.",
+      "image": "https://images.unsplash.com/photo-1624623278313-a930126a11c3?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 79,
+    "fields": {
+      "product_name": "Hoodie Oversized Black",
+      "category": "Fashion",
+      "subcategory": "Topwear",
+      "price": 1499,
+      "desc": "Heavyweight fleece oversized hoodie, streetwear essential.",
+      "image": "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 80,
+    "fields": {
+      "product_name": "Badminton Racket Pro",
+      "category": "Sports",
+      "subcategory": "Racket",
+      "price": 1999,
+      "desc": "Carbon fibre badminton racket, pre-strung 26lbs.",
+      "image": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 81,
+    "fields": {
+      "product_name": "Football Nike Premier",
+      "category": "Sports",
+      "subcategory": "Ball",
+      "price": 1299,
+      "desc": "FIFA quality pro football with aerowsculpt technology.",
+      "image": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 82,
+    "fields": {
+      "product_name": "Gym Gloves Leather",
+      "category": "Sports",
+      "subcategory": "Gym",
+      "price": 599,
+      "desc": "Full-palm leather gym gloves with wrist support.",
+      "image": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 83,
+    "fields": {
+      "product_name": "Resistance Bands Set 5pc",
+      "category": "Sports",
+      "subcategory": "Gym",
+      "price": 499,
+      "desc": "Set of 5 latex resistance bands from 10 to 50lbs.",
+      "image": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 84,
+    "fields": {
+      "product_name": "Running Shoes Lightweight",
+      "category": "Sports",
+      "subcategory": "Footwear",
+      "price": 3499,
+      "desc": "Ultra-lightweight mesh running shoes with energy return sole.",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 85,
+    "fields": {
+      "product_name": "Skipping Rope Steel Wire",
+      "category": "Sports",
+      "subcategory": "Cardio",
+      "price": 349,
+      "desc": "Speed steel wire skipping rope with ball-bearing handles.",
+      "image": "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 86,
+    "fields": {
+      "product_name": "Water Bottle Insulated 1L",
+      "category": "Sports",
+      "subcategory": "Hydration",
+      "price": 799,
+      "desc": "Double-wall vacuum insulated 1L water bottle, keeps cold 24hr.",
+      "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 87,
+    "fields": {
+      "product_name": "Cycling Helmet",
+      "category": "Sports",
+      "subcategory": "Cycling",
+      "price": 1799,
+      "desc": "CPSC certified cycling helmet with 24 ventilation channels.",
+      "image": "https://images.unsplash.com/photo-1571188654248-7a89213915f7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 88,
+    "fields": {
+      "product_name": "Cricket Bat Kashmir Willow",
+      "category": "Sports",
+      "subcategory": "Cricket",
+      "price": 1499,
+      "desc": "Grade-1 Kashmir willow bat, full-size 6 pounds.",
+      "image": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 89,
+    "fields": {
+      "product_name": "Protein Shaker Bottle",
+      "category": "Sports",
+      "subcategory": "Gym",
+      "price": 399,
+      "desc": "BPA-free 700ml blender shaker bottle with mixing ball.",
+      "image": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 90,
+    "fields": {
+      "product_name": "Foam Roller Deep Tissue",
+      "category": "Sports",
+      "subcategory": "Recovery",
+      "price": 899,
+      "desc": "High-density foam roller for deep tissue muscle recovery.",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 91,
+    "fields": {
+      "product_name": "Sports Compression Tights",
+      "category": "Sports",
+      "subcategory": "Apparel",
+      "price": 1199,
+      "desc": "4-way stretch compression tights for performance and recovery.",
+      "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 92,
+    "fields": {
+      "product_name": "Tennis Racket Carbon",
+      "category": "Sports",
+      "subcategory": "Racket",
+      "price": 2999,
+      "desc": "100% graphite tennis racket, 300g, pre-strung.",
+      "image": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 93,
+    "fields": {
+      "product_name": "Scented Soy Candle Set",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 799,
+      "desc": "Set of 3 hand-poured soy candles in lavender, vanilla and cedarwood.",
+      "image": "https://images.unsplash.com/photo-1602874801006-3f19a3ceed3b?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 94,
+    "fields": {
+      "product_name": "Ceramic Coffee Mug Set",
+      "category": "Home",
+      "subcategory": "Kitchen",
+      "price": 599,
+      "desc": "Set of 4 handcrafted ceramic mugs, microwave and dishwasher safe.",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 95,
+    "fields": {
+      "product_name": "Wall Art Print Nordic",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 899,
+      "desc": "Set of 3 minimalist Nordic wall art prints, A4 size.",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 96,
+    "fields": {
+      "product_name": "Bamboo Storage Organiser",
+      "category": "Home",
+      "subcategory": "Storage",
+      "price": 699,
+      "desc": "Eco-friendly bamboo desktop organiser with 6 compartments.",
+      "image": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 97,
+    "fields": {
+      "product_name": "Throw Pillow Velvet Mustard",
+      "category": "Home",
+      "subcategory": "Bedding",
+      "price": 499,
+      "desc": "Soft velvet throw pillow cover in trending mustard yellow.",
+      "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 98,
+    "fields": {
+      "product_name": "Indoor Plant Pot Terrazzo",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 349,
+      "desc": "Handmade terrazzo plant pot with drainage hole, 6-inch.",
+      "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 99,
+    "fields": {
+      "product_name": "Bedsheet Set King 400TC",
+      "category": "Home",
+      "subcategory": "Bedding",
+      "price": 1999,
+      "desc": "400 thread count 100% Egyptian cotton king-size bedsheet set.",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 100,
+    "fields": {
+      "product_name": "Kitchen Knife Set 5pc",
+      "category": "Home",
+      "subcategory": "Kitchen",
+      "price": 1499,
+      "desc": "German steel 5-piece kitchen knife set with wooden block.",
+      "image": "https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 101,
+    "fields": {
+      "product_name": "Reed Diffuser Oud",
+      "category": "Home",
+      "subcategory": "Fragrance",
+      "price": 599,
+      "desc": "Luxury oud reed diffuser, fills room with fragrance for 60 days.",
+      "image": "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 102,
+    "fields": {
+      "product_name": "String Fairy Lights 10m",
+      "category": "Home",
+      "subcategory": "Lighting",
+      "price": 399,
+      "desc": "10m warm-white LED fairy lights, USB powered.",
+      "image": "https://images.unsplash.com/photo-1545259742-56b53b23f0b2?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 103,
+    "fields": {
+      "product_name": "Macrame Wall Hanging",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 849,
+      "desc": "Handmade boho macrame wall hanging, 60cm wide.",
+      "image": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 104,
+    "fields": {
+      "product_name": "Cast Iron Skillet 10 inch",
+      "category": "Home",
+      "subcategory": "Kitchen",
+      "price": 1299,
+      "desc": "Pre-seasoned cast iron skillet, oven safe up to 500F.",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 105,
+    "fields": {
+      "product_name": "Bathroom Towel Set 4pc",
+      "category": "Home",
+      "subcategory": "Bath",
+      "price": 1099,
+      "desc": "100% combed cotton towel set, 650GSM ultra-absorbent.",
+      "image": "https://images.unsplash.com/photo-1583845112203-29329902332e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 106,
+    "fields": {
+      "product_name": "Photo Frame Collage 6-in-1",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 699,
+      "desc": "Rustic wood 6-frame collage for living room wall.",
+      "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 107,
+    "fields": {
+      "product_name": "Air Fryer 4L Digital",
+      "category": "Home",
+      "subcategory": "Appliance",
+      "price": 4999,
+      "desc": "4-litre digital air fryer, 8 presets, 1500W rapid heat.",
+      "image": "https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 108,
+    "fields": {
+      "product_name": "Jute Woven Basket",
+      "category": "Home",
+      "subcategory": "Storage",
+      "price": 449,
+      "desc": "Handwoven jute storage basket, perfect for blankets and toys.",
+      "image": "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 109,
+    "fields": {
+      "product_name": "White Sneakers Classic",
+      "category": "Footwear",
+      "subcategory": "Casual",
+      "price": 2499,
+      "desc": "Minimalist white leather sneakers with cushioned sole.",
+      "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 110,
+    "fields": {
+      "product_name": "Chelsea Boots Brown Leather",
+      "category": "Footwear",
+      "subcategory": "Boots",
+      "price": 3999,
+      "desc": "Genuine leather Chelsea boots with elastic side panels.",
+      "image": "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 111,
+    "fields": {
+      "product_name": "Kolhapuri Chappals",
+      "category": "Footwear",
+      "subcategory": "Ethnic",
+      "price": 899,
+      "desc": "Handcrafted traditional Kolhapuri leather chappals.",
+      "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 112,
+    "fields": {
+      "product_name": "Slip-On Loafers Suede",
+      "category": "Footwear",
+      "subcategory": "Casual",
+      "price": 1799,
+      "desc": "Suede slip-on loafers with memory foam insole.",
+      "image": "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 113,
+    "fields": {
+      "product_name": "Heeled Sandals Strappy",
+      "category": "Footwear",
+      "subcategory": "Heels",
+      "price": 1499,
+      "desc": "Strappy block heel sandals, ideal for parties and events.",
+      "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 114,
+    "fields": {
+      "product_name": "Flip Flops EVA Comfort",
+      "category": "Footwear",
+      "subcategory": "Slippers",
+      "price": 349,
+      "desc": "Lightweight EVA flip flops with arch support.",
+      "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 115,
+    "fields": {
+      "product_name": "High-Top Basketball Shoes",
+      "category": "Footwear",
+      "subcategory": "Sport",
+      "price": 4499,
+      "desc": "High-top basketball shoes with ankle support and grippy outsole.",
+      "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 116,
+    "fields": {
+      "product_name": "Oxford Formal Shoes",
+      "category": "Footwear",
+      "subcategory": "Formal",
+      "price": 2999,
+      "desc": "Genuine leather Oxford shoes with hand-stitched detailing.",
+      "image": "https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 117,
+    "fields": {
+      "product_name": "Ankle Boots Women Black",
+      "category": "Footwear",
+      "subcategory": "Boots",
+      "price": 2499,
+      "desc": "Faux leather ankle boots with side zipper closure.",
+      "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 118,
+    "fields": {
+      "product_name": "Trail Running Shoes",
+      "category": "Footwear",
+      "subcategory": "Sport",
+      "price": 3299,
+      "desc": "Waterproof Gore-Tex trail running shoes with rock plate.",
+      "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 119,
+    "fields": {
+      "product_name": "Moccasin Slippers Indoor",
+      "category": "Footwear",
+      "subcategory": "Slippers",
+      "price": 599,
+      "desc": "Cosy sherpa-lined moccasin slippers for home wear.",
+      "image": "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 120,
+    "fields": {
+      "product_name": "Platform Chunky Sneakers",
+      "category": "Footwear",
+      "subcategory": "Casual",
+      "price": 2799,
+      "desc": "90s-inspired chunky platform sneakers, extra 5cm height.",
+      "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 121,
+    "fields": {
+      "product_name": "Wedge Espadrilles",
+      "category": "Footwear",
+      "subcategory": "Casual",
+      "price": 1299,
+      "desc": "Jute platform wedge espadrilles in natural tan.",
+      "image": "https://images.unsplash.com/photo-1566479179817-0b09b96b4849?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 122,
+    "fields": {
+      "product_name": "Sneaker Cleaning Kit",
+      "category": "Footwear",
+      "subcategory": "Accessory",
+      "price": 299,
+      "desc": "Complete sneaker cleaning kit with brush, foam and cloth.",
+      "image": "https://images.unsplash.com/photo-1604515077671-5a4dcd9a3f56?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 123,
+    "fields": {
+      "product_name": "Insoles Memory Foam",
+      "category": "Footwear",
+      "subcategory": "Accessory",
+      "price": 249,
+      "desc": "Orthopedic memory foam insoles for all-day comfort.",
+      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 124,
+    "fields": {
+      "product_name": "PS5 DualSense Controller",
+      "category": "Gaming",
+      "subcategory": "Controller",
+      "price": 5999,
+      "desc": "Official PS5 DualSense wireless controller with haptic feedback.",
+      "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 125,
+    "fields": {
+      "product_name": "Gaming Chair Ergonomic",
+      "category": "Gaming",
+      "subcategory": "Furniture",
+      "price": 12999,
+      "desc": "Racing-style gaming chair with lumbar support and 4D armrests.",
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 126,
+    "fields": {
+      "product_name": "Gaming Monitor 144Hz 27 inch",
+      "category": "Gaming",
+      "subcategory": "Monitor",
+      "price": 18999,
+      "desc": "27-inch IPS 144Hz gaming monitor with 1ms response time.",
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 127,
+    "fields": {
+      "product_name": "Xbox Wireless Controller",
+      "category": "Gaming",
+      "subcategory": "Controller",
+      "price": 5499,
+      "desc": "Xbox Series X wireless controller with textured grip.",
+      "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 128,
+    "fields": {
+      "product_name": "Gaming Headset 7.1 Surround",
+      "category": "Gaming",
+      "subcategory": "Audio",
+      "price": 3499,
+      "desc": "Virtual 7.1 surround sound gaming headset with RGB lighting.",
+      "image": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 129,
+    "fields": {
+      "product_name": "Gaming Mousepad XL",
+      "category": "Gaming",
+      "subcategory": "Accessory",
+      "price": 699,
+      "desc": "900x400mm extended gaming mousepad with anti-slip rubber base.",
+      "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 130,
+    "fields": {
+      "product_name": "Retro Mini Console 500 Games",
+      "category": "Gaming",
+      "subcategory": "Console",
+      "price": 2999,
+      "desc": "Retro mini console with 500 built-in classic games.",
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 131,
+    "fields": {
+      "product_name": "Gaming Capture Card 4K",
+      "category": "Gaming",
+      "subcategory": "Accessory",
+      "price": 4999,
+      "desc": "4K 60fps capture card for streaming and recording gameplay.",
+      "image": "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 132,
+    "fields": {
+      "product_name": "RGB LED Strip 5m",
+      "category": "Gaming",
+      "subcategory": "Lighting",
+      "price": 499,
+      "desc": "5m RGB LED strip with app control for gaming room setup.",
+      "image": "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 133,
+    "fields": {
+      "product_name": "Nintendo Switch Carry Case",
+      "category": "Gaming",
+      "subcategory": "Accessory",
+      "price": 799,
+      "desc": "Hard shell protective carrying case for Nintendo Switch.",
+      "image": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 134,
+    "fields": {
+      "product_name": "L-Shaped Gaming Desk",
+      "category": "Gaming",
+      "subcategory": "Furniture",
+      "price": 8999,
+      "desc": "L-shaped gaming desk with built-in cable management and LED.",
+      "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 135,
+    "fields": {
+      "product_name": "PC Cooling Fan RGB 120mm",
+      "category": "Gaming",
+      "subcategory": "PC Part",
+      "price": 899,
+      "desc": "120mm addressable RGB case fan, 1500RPM quiet operation.",
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 136,
+    "fields": {
+      "product_name": "Gaming Steering Wheel",
+      "category": "Gaming",
+      "subcategory": "Controller",
+      "price": 7999,
+      "desc": "Force feedback steering wheel with pedals for racing games.",
+      "image": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 137,
+    "fields": {
+      "product_name": "Compact Mechanical Keyboard",
+      "category": "Gaming",
+      "subcategory": "Keyboard",
+      "price": 3299,
+      "desc": "60% compact mechanical gaming keyboard, hot-swappable switches.",
+      "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 138,
+    "fields": {
+      "product_name": "VR Gaming Controllers",
+      "category": "Gaming",
+      "subcategory": "Controller",
+      "price": 3999,
+      "desc": "6DOF VR motion controllers compatible with major VR headsets.",
+      "image": "https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 139,
+    "fields": {
+      "product_name": "Cold Brew Coffee Kit",
+      "category": "Food",
+      "subcategory": "Coffee",
+      "price": 1299,
+      "desc": "Premium Arabica cold brew coffee kit with mason jar and filter.",
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 140,
+    "fields": {
+      "product_name": "Artisan Dark Chocolate Box",
+      "category": "Food",
+      "subcategory": "Chocolate",
+      "price": 899,
+      "desc": "Handcrafted 70% cacao dark chocolate assortment, 12 pieces.",
+      "image": "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 141,
+    "fields": {
+      "product_name": "Organic Green Tea 100g",
+      "category": "Food",
+      "subcategory": "Tea",
+      "price": 499,
+      "desc": "Single-origin Darjeeling green tea, first flush harvest.",
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 142,
+    "fields": {
+      "product_name": "Gourmet Spice Gift Set",
+      "category": "Food",
+      "subcategory": "Spices",
+      "price": 799,
+      "desc": "8 premium spices from Kerala in artisan glass jars.",
+      "image": "https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 143,
+    "fields": {
+      "product_name": "Himalayan Raw Honey 500g",
+      "category": "Food",
+      "subcategory": "Honey",
+      "price": 649,
+      "desc": "Wild raw Himalayan honey, unprocessed and naturally harvested.",
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 144,
+    "fields": {
+      "product_name": "Korean Spicy Ramen Pack 5x",
+      "category": "Food",
+      "subcategory": "Noodles",
+      "price": 249,
+      "desc": "Korean-style spicy instant ramen, pack of 5.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 145,
+    "fields": {
+      "product_name": "Honey Granola Clusters 400g",
+      "category": "Food",
+      "subcategory": "Breakfast",
+      "price": 449,
+      "desc": "Honey-roasted granola clusters with almonds and cranberries.",
+      "image": "https://images.unsplash.com/photo-1517093157641-c076d5294fe7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 146,
+    "fields": {
+      "product_name": "Extra Virgin Olive Oil 500ml",
+      "category": "Food",
+      "subcategory": "Oils",
+      "price": 899,
+      "desc": "Cold-pressed Italian extra virgin olive oil, DOP certified.",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 147,
+    "fields": {
+      "product_name": "Mixed Nuts Premium 250g",
+      "category": "Food",
+      "subcategory": "Snacks",
+      "price": 599,
+      "desc": "Roasted salted mixed nuts, almonds, cashews, walnuts, pistachios.",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 148,
+    "fields": {
+      "product_name": "Protein Bar Box 12pc",
+      "category": "Food",
+      "subcategory": "Health",
+      "price": 1199,
+      "desc": "20g protein, low sugar, gluten-free protein bars, box of 12.",
+      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 149,
+    "fields": {
+      "product_name": "Ceremonial Matcha Powder 50g",
+      "category": "Food",
+      "subcategory": "Tea",
+      "price": 749,
+      "desc": "Ceremonial grade Japanese matcha powder from Uji, Kyoto.",
+      "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 150,
+    "fields": {
+      "product_name": "Pure Desi Ghee 500ml",
+      "category": "Food",
+      "subcategory": "Dairy",
+      "price": 699,
+      "desc": "Hand-churned A2 cow ghee from grass-fed cows.",
+      "image": "https://images.unsplash.com/photo-1559181567-c3190ca9d222?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 151,
+    "fields": {
+      "product_name": "Crunchy Peanut Butter 1kg",
+      "category": "Food",
+      "subcategory": "Spreads",
+      "price": 549,
+      "desc": "100% natural crunchy peanut butter, no sugar no palm oil.",
+      "image": "https://images.unsplash.com/photo-1604928141064-207ceac0499e?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 152,
+    "fields": {
+      "product_name": "Kashmiri Saffron 2g",
+      "category": "Food",
+      "subcategory": "Spices",
+      "price": 499,
+      "desc": "Premium Grade-1 Kashmiri saffron, hand-picked threads.",
+      "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 153,
+    "fields": {
+      "product_name": "Kombucha Starter Kit",
+      "category": "Food",
+      "subcategory": "Health",
+      "price": 1099,
+      "desc": "DIY kombucha brewing kit with SCOBY, tea and glass jar.",
+      "image": "https://images.unsplash.com/photo-1500353391678-d7b57979d6d2?w=400&q=80"
+    }
+  },
+  {
+    "model": "ecommerceapp.product",
+    "pk": 154,
+    "fields": {
+      "product_name": "Sourdough Bread Mix 500g",
+      "category": "Food",
+      "subcategory": "Baking",
+      "price": 349,
+      "desc": "Ready-to-use sourdough bread mix with live starter culture.",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80"
+    }
+  }
 ]
