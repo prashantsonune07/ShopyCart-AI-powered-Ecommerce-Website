@@ -77,8 +77,7 @@ def signup(request):
             # Email not configured - show clickable link directly on login page
             messages.warning(
                 request,
-                f'Account created! Email could not be sent. '
-                f'Click here to activate: <a href="{activation_link}">{activation_link}</a>'
+                f'<a href="{activation_link}">Click here to activate your account</a>'
             )
 
         return redirect('/auth/login/')
@@ -167,8 +166,7 @@ class RequestResetEmailView(View):
             else:
                 messages.warning(
                     request,
-                    f'Email could not be sent. '
-                    f'Click here to reset your password: <a href="{reset_link}">{reset_link}</a>'
+                    f'<a href="{reset_link}">Click here to reset your password</a>'
                 )
         else:
             messages.warning(request, "No account found with that email address.")
