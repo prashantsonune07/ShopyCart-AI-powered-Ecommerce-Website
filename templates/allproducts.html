@@ -1,0 +1,702 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products — ShopyCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#0a0a0a;
+    --cream:#faf8f5;
+    --accent:#e84855;
+    --accent2:#ff6b35;
+    --muted:#6b6b6b;
+    --border:rgba(0,0,0,0.09);
+    --gold:#f0b429;
+    --shadow:0 20px 60px rgba(0,0,0,0.12);
+    --shadow-sm:0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'DM Sans',sans-serif;
+    background:linear-gradient(180deg,#fff 0%, var(--cream) 35%, #fff 100%);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+
+  .page-shell {
+    max-width:1320px;
+    margin:0 auto;
+    padding:0 24px 56px;
+  }
+
+  nav {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 24px;
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:2px;
+    color:var(--ink);
+    text-decoration:none;
+  }
+
+  .nav-logo span { color:var(--accent); }
+
+  .nav-actions { display:flex; gap:10px; align-items:center; }
+
+  .btn-pill {
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:700;
+    text-decoration:none;
+    transition:all 0.25s;
+    border:none;
+    cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .btn-outline {
+    border:1.5px solid var(--border);
+    color:var(--ink);
+    background:#fff;
+  }
+
+  .btn-outline:hover {
+    border-color:var(--ink);
+    transform:translateY(-1px);
+  }
+
+  .btn-dark {
+    background:var(--ink);
+    color:#fff;
+  }
+
+  .btn-dark:hover {
+    background:var(--accent);
+    transform:translateY(-1px);
+  }
+
+  .hero {
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,var(--ink) 0%, #1a1a2e 55%, #16213e 100%);
+    color:#fff;
+    border-radius:32px;
+    margin:24px 0 18px;
+    padding:44px 36px;
+    box-shadow:var(--shadow);
+  }
+
+  .hero::before,
+  .hero::after {
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    pointer-events:none;
+  }
+
+  .hero::before {
+    width:280px;
+    height:280px;
+    background:rgba(232,72,85,0.18);
+    top:-90px;
+    right:-50px;
+  }
+
+  .hero::after {
+    width:220px;
+    height:220px;
+    background:rgba(240,180,41,0.14);
+    bottom:-90px;
+    left:10%;
+  }
+
+  .hero-label {
+    position:relative;
+    z-index:1;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+
+  .hero-title {
+    position:relative;
+    z-index:1;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(48px, 6vw, 84px);
+    line-height:0.9;
+    margin-bottom:14px;
+  }
+
+  .hero-title span {
+    color:var(--accent);
+    display:block;
+  }
+
+  .hero-sub {
+    position:relative;
+    z-index:1;
+    max-width:700px;
+    font-size:15px;
+    line-height:1.7;
+    color:rgba(255,255,255,0.68);
+    font-weight:300;
+  }
+
+  .stats-row {
+    position:relative;
+    z-index:1;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    margin-top:26px;
+  }
+
+  .stat {
+    min-width:140px;
+  }
+
+  .stat-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:34px;
+    line-height:1;
+  }
+
+  .stat-label {
+    font-size:12px;
+    color:rgba(255,255,255,0.5);
+    margin-top:4px;
+  }
+
+  .filters {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin:24px 0 20px;
+  }
+
+  .filters .label {
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-right:2px;
+  }
+
+  .filter-btn {
+    padding:8px 16px;
+    border-radius:100px;
+    border:1.5px solid var(--border);
+    background:#fff;
+    color:var(--ink);
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all 0.25s;
+    font-family:'DM Sans',sans-serif;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(232,72,85,0.10);
+  }
+
+  .section-title {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(30px, 3.4vw, 42px);
+    line-height:1.15;
+    margin-bottom:6px;
+  }
+
+  .section-desc {
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:18px;
+  }
+
+  .products-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:22px;
+  }
+
+  .product-card {
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:transform 0.35s cubic-bezier(.25,.46,.45,.94), box-shadow 0.35s;
+    border:1px solid rgba(0,0,0,0.04);
+  }
+
+  .product-card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 24px 60px rgba(0,0,0,0.14);
+  }
+
+  .product-img {
+    height:220px;
+    overflow:hidden;
+    position:relative;
+    background:#f5f3f0;
+  }
+
+  .product-img img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img img {
+    transform:scale(1.07);
+  }
+
+  .badge {
+    position:absolute;
+    top:12px;
+    left:12px;
+    padding:4px 12px;
+    border-radius:100px;
+    background:var(--ink);
+    color:#fff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+
+  .product-actions {
+    position:absolute;
+    top:12px;
+    right:12px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    opacity:0;
+    transform:translateX(10px);
+    transition:all 0.3s;
+  }
+
+  .product-card:hover .product-actions {
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  .action-btn {
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#fff;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    transition:all 0.2s;
+  }
+
+  .action-btn:hover {
+    background:var(--accent);
+    color:#fff;
+    transform:scale(1.1);
+  }
+
+  .product-info {
+    padding:18px 20px 20px;
+  }
+
+  .product-category {
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+    font-weight:700;
+  }
+
+  .product-name {
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:10px;
+    line-height:1.35;
+  }
+
+  .product-price-row {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+
+  .product-price {
+    font-size:20px;
+    font-weight:800;
+  }
+
+  .product-price-old {
+    font-size:13px;
+    color:var(--muted);
+    text-decoration:line-through;
+  }
+
+  .add-to-cart {
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:var(--ink);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:300;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all 0.25s;
+    flex-shrink:0;
+  }
+
+  .add-to-cart:hover {
+    background:var(--accent);
+    transform:rotate(90deg) scale(1.1);
+  }
+
+  .pagination {
+    margin-top:28px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .page-btn {
+    min-width:38px;
+    height:38px;
+    border-radius:100px;
+    padding:0 12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1.5px solid var(--border);
+    background:#fff;
+    color:var(--ink);
+    font-size:13px;
+    font-weight:700;
+    text-decoration:none;
+    transition:all 0.25s;
+  }
+
+  .page-btn:hover {
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-1px);
+  }
+
+  .page-btn.active {
+    background:var(--ink);
+    color:#fff;
+    border-color:var(--ink);
+  }
+
+  .image-modal {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.72);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:16px;
+  }
+
+  .image-modal.open {
+    display:flex;
+  }
+
+  .image-box {
+    position:relative;
+    width:min(900px, 96vw);
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+
+  .image-box img {
+    width:100%;
+    max-height:78vh;
+    object-fit:contain;
+    background:#f5f3f0;
+    display:block;
+  }
+
+  .image-title {
+    padding:12px 16px;
+    font-size:14px;
+    font-weight:700;
+  }
+
+  .image-close {
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:none;
+    background:rgba(0,0,0,0.65);
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+  }
+
+  .toast-wrap {
+    position:fixed;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2500;
+  }
+
+  .toast {
+    background:var(--ink);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:100px;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 8px 24px rgba(0,0,0,0.24);
+  }
+
+  .footer-note {
+    margin-top:22px;
+    font-size:13px;
+    color:var(--muted);
+    text-align:center;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding:34px 22px; border-radius:24px; }
+    .page-shell { padding:0 16px 40px; }
+    .products-grid { grid-template-columns:1fr; }
+    .filter-btn { flex: 1 1 auto; }
+    .nav-actions { gap:8px; }
+    .btn-pill { padding:9px 16px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Shopy<span>Cart</span></a>
+  <div class="nav-actions">
+    <a href="/" class="btn-pill btn-outline">← Back Home</a>
+    <a href="/groupdeals/" class="btn-pill btn-dark">Group Deals</a>
+  </div>
+</nav>
+
+<div class="page-shell">
+  <section class="hero">
+    <div class="hero-label">All Products</div>
+    <div class="hero-title">Browse the <span>Full Catalog</span></div>
+    <p class="hero-sub">Use the category filters below to sort the entire product list. This page is for discovery only: no deals, no distractions, just everything available in the store.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">{{ total_products }}+</div>
+        <div class="stat-label">Products Loaded</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">{{ categories|length|add:"-1" }}+</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Full Catalog</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="filters">
+    <span class="label">Sort by Category:</span>
+    {% for category in categories %}
+      <a class="filter-btn {% if selected_category|lower == category|lower %}active{% endif %}" href="{% if category == 'all' %}/all-products/{% else %}/all-products/?category={{ category|urlencode }}{% endif %}">
+        {% if category == 'all' %}All{% else %}{{ category }}{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="section-title">All Products</div>
+  <div class="section-desc">Every product is listed here, grouped by category. You can filter instantly without leaving the page.</div>
+
+  <div class="products-grid" id="productsGrid">
+    {% for product in products %}
+    <div class="product-card" data-category="{{ product.category|lower }}">
+      <div class="product-img">
+        <img src="{{ product.image.url }}" alt="{{ product.product_name }}" loading="lazy">
+        <span class="badge">NEW</span>
+        <div class="product-actions">
+          <button class="action-btn" title="View Picture" onclick="openImage('{{ product.image.url|escapejs }}', '{{ product.product_name|escapejs }}')">👁</button>
+          <button class="action-btn" title="Wishlist" id="wbtn-{{ product.id }}" onclick="toggleWishlist({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image.url|escapejs }}', this)">♡</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-category">{{ product.category }}</div>
+        <div class="product-name">{{ product.product_name }}</div>
+        <div class="product-price-row">
+          <div>
+            <div class="product-price">₹{{ product.price }}</div>
+            <div class="product-price-old">₹{{ product.price }}</div>
+          </div>
+          <button class="add-to-cart" title="Add to cart" onclick="addToCart({{ product.id }}, '{{ product.product_name|escapejs }}', {{ product.price }}, '{{ product.image.url|escapejs }}')">+</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if page_obj.has_other_pages %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <a class="page-btn" href="?{% if selected_category|lower != 'all' %}category={{ selected_category|urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">Prev</a>
+    {% endif %}
+
+    {% for page_number in page_obj.paginator.page_range %}
+      {% if page_number == page_obj.number %}
+        <span class="page-btn active">{{ page_number }}</span>
+      {% else %}
+        <a class="page-btn" href="?{% if selected_category|lower != 'all' %}category={{ selected_category|urlencode }}&{% endif %}page={{ page_number }}">{{ page_number }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a class="page-btn" href="?{% if selected_category|lower != 'all' %}category={{ selected_category|urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="footer-note">Showing {{ products|length }} products on this page. Use pagination to browse all results.</div>
+</div>
+
+<div class="image-modal" id="imageModal" onclick="closeImage(event)">
+  <div class="image-box">
+    <button class="image-close" onclick="closeImage()">✕</button>
+    <img id="modalImage" src="" alt="Product image">
+    <div class="image-title" id="modalImageTitle"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+  function showToast(msg) {
+    const wrap = document.getElementById('toastWrap');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = msg;
+    wrap.innerHTML = '';
+    wrap.appendChild(toast);
+    setTimeout(() => toast.remove(), 2500);
+  }
+
+  function openImage(src, title) {
+    const modal = document.getElementById('imageModal');
+    document.getElementById('modalImage').src = src;
+    document.getElementById('modalImageTitle').textContent = title;
+    modal.classList.add('open');
+  }
+
+  function closeImage(event) {
+    if (event && event.target && event.target.id !== 'imageModal') return;
+    document.getElementById('imageModal').classList.remove('open');
+  }
+
+  function getWL() {
+    try {
+      const raw = localStorage.getItem('wishlist');
+      const parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveWL(wl) {
+    localStorage.setItem('wishlist', JSON.stringify(wl));
+  }
+
+  function toggleWishlist(id, name, price, img, btn) {
+    const wl = getWL();
+    if (wl[id]) {
+      delete wl[id];
+      if (btn) btn.textContent = '♡';
+      showToast('Removed from wishlist');
+    } else {
+      wl[id] = { id, name, price, img };
+      if (btn) btn.textContent = '❤️';
+      showToast('Added to wishlist');
+    }
+    saveWL(wl);
+  }
+
+  function addToCart(id, name, price, img) {
+    let cart = {};
+    try {
+      cart = JSON.parse(localStorage.getItem('cart') || '{}');
+    } catch (e) {
+      cart = {};
+    }
+
+    if (!cart[id]) {
+      cart[id] = [0, name, price, img];
+    }
+    cart[id][0] += 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    showToast('Added to cart');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const wl = getWL();
+    document.querySelectorAll('[id^="wbtn-"]').forEach(btn => {
+      const id = btn.id.replace('wbtn-', '');
+      if (wl[id]) {
+        btn.textContent = '❤️';
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment — ShopyCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0a0a0a; --cream:#faf8f5; --accent:#e84855; --accent2:#ff6b35; --muted:#6b6b6b; --border:rgba(0,0,0,0.09); --gold:#f0b429; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); min-height:100vh; overflow-x:hidden; }
+
+  /* ── CURSOR ── */
+  .cursor { width:12px; height:12px; background:var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transition:transform 0.15s ease,width 0.2s,height 0.2s; mix-blend-mode:multiply; }
+  .cursor-ring { width:40px; height:40px; border:1.5px solid var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); opacity:0.6; }
+
+  /* ── NAV ── */
+  nav { position:sticky; top:0; z-index:500; background:rgba(250,248,245,0.92); backdrop-filter:blur(24px); border-bottom:1px solid var(--border); padding:0 48px; height:70px; display:flex; align-items:center; justify-content:space-between; animation:fadeDown 0.7s ease both; }
+  .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--ink); text-decoration:none; }
+  .nav-logo span { color:var(--accent); }
+  .nav-steps { display:flex; align-items:center; gap:6px; }
+  .step-pill { padding:6px 14px; border-radius:100px; font-size:12px; font-weight:700; }
+  .step-pill.done { background:rgba(34,197,94,0.12); color:#16a34a; }
+  .step-pill.active { background:var(--ink); color:#fff; animation:pillPulse 2s ease-in-out infinite; }
+  .step-pill.upcoming { color:var(--muted); }
+  @keyframes pillPulse { 0%,100%{box-shadow:0 0 0 0 rgba(232,72,85,0)} 50%{box-shadow:0 0 0 6px rgba(232,72,85,0.12)} }
+  .step-sep { color:rgba(0,0,0,0.15); font-size:16px; }
+
+  /* ── HERO ── */
+  .page-hero { background:var(--ink); padding:52px 48px 44px; position:relative; overflow:hidden; }
+  .orb { position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; }
+  .orb1 { width:400px; height:400px; background:rgba(232,72,85,0.18); top:-150px; right:-100px; animation:orbFloat 9s ease-in-out infinite; }
+  .orb2 { width:280px; height:280px; background:rgba(240,180,41,0.14); bottom:-80px; left:10%; animation:orbFloat 12s ease-in-out infinite reverse; }
+  .orb3 { width:200px; height:200px; background:rgba(255,107,53,0.12); top:30%; left:50%; animation:orbFloat 8s ease-in-out infinite; }
+  @keyframes orbFloat { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+  .v-strip { position:absolute; right:56px; top:0; bottom:0; width:22px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .v-strip span { font-family:'Bebas Neue',sans-serif; font-size:9px; letter-spacing:3px; color:rgba(255,255,255,0.06); writing-mode:vertical-rl; animation:scrollUp 16s linear infinite; white-space:nowrap; }
+  @keyframes scrollUp { from{transform:translateY(100%)} to{transform:translateY(-100%)} }
+
+  .hero-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:block; animation:fadeUp 0.6s 0.2s ease both; }
+  .hero-title { font-family:'Bebas Neue',sans-serif; line-height:0.88; }
+  .word { display:block; overflow:hidden; }
+  .word-inner { display:block; animation:wordUp 0.9s cubic-bezier(.16,1,.3,1) both; color:#fff; }
+  .word:nth-child(1) .word-inner { font-size:clamp(52px,7vw,90px); animation-delay:0.1s; }
+  .word:nth-child(2) .word-inner { font-size:clamp(52px,7vw,90px); animation-delay:0.25s; color:var(--accent); display:inline-block; position:relative; }
+  .word:nth-child(2) .word-inner::after { content:''; position:absolute; bottom:6px; left:0; height:3px; width:0; background:var(--gold); border-radius:2px; animation:lineGrow 0.5s 1.1s ease forwards; }
+  .hero-sub { font-size:15px; color:rgba(255,255,255,0.4); font-weight:300; margin-top:14px; animation:fadeUp 0.7s 0.5s ease both; }
+  @keyframes wordUp { from{transform:translateY(110%);opacity:0} to{transform:translateY(0);opacity:1} }
+  @keyframes lineGrow { to{width:100%} }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap { max-width:1100px; margin:0 auto; padding:44px 24px; display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:start; }
+
+  /* ── PAYMENT CARD ── */
+  .pay-card { background:#fff; border-radius:24px; padding:32px; box-shadow:0 4px 24px rgba(0,0,0,0.06); animation:fadeUp 0.7s ease both; }
+  .pay-card-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1px; margin-bottom:6px; }
+  .pay-card-title .char { display:inline-block; animation:charPop 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+  @keyframes charPop { from{transform:translateY(14px) scale(0.8);opacity:0} to{transform:translateY(0) scale(1);opacity:1} }
+  .pay-card-sub { font-size:13px; color:var(--muted); font-weight:300; margin-bottom:28px; }
+
+  /* Payment method tabs */
+  .method-tabs { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
+  .method-tab { display:flex; align-items:center; gap:8px; padding:10px 18px; border-radius:14px; border:1.5px solid var(--border); cursor:pointer; font-size:13px; font-weight:600; transition:all 0.25s; background:#fff; }
+  .method-tab:hover { border-color:var(--accent); color:var(--accent); }
+  .method-tab.active { border-color:var(--ink); background:var(--ink); color:#fff; }
+  .method-tab .tab-icon { font-size:18px; }
+
+  /* Card visual */
+  .card-visual { width:100%; max-width:380px; height:210px; border-radius:20px; background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 60%,#2d1b69 100%); padding:24px 28px; position:relative; overflow:hidden; margin-bottom:28px; animation:fadeUp 0.7s 0.2s ease both; }
+  .card-visual::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:rgba(232,72,85,0.2); }
+  .card-visual::after { content:''; position:absolute; bottom:-40px; left:-40px; width:160px; height:160px; border-radius:50%; background:rgba(240,180,41,0.15); }
+  .card-chip { width:40px; height:30px; background:linear-gradient(135deg,var(--gold),#e6a200); border-radius:6px; margin-bottom:24px; position:relative; z-index:1; }
+  .card-chip::before { content:''; position:absolute; top:50%; left:0; right:0; height:1px; background:rgba(0,0,0,0.2); }
+  .card-chip::after { content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(0,0,0,0.2); }
+  .card-number-display { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:4px; color:#fff; margin-bottom:20px; position:relative; z-index:1; }
+  .card-number-display .masked { opacity:0.5; }
+  .card-bottom { display:flex; justify-content:space-between; align-items:flex-end; position:relative; z-index:1; }
+  .card-holder-label { font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
+  .card-holder-name { font-size:14px; font-weight:600; color:#fff; letter-spacing:1px; text-transform:uppercase; }
+  .card-expiry-label { font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; text-align:right; }
+  .card-expiry-val { font-size:14px; font-weight:600; color:#fff; }
+  .card-brand { position:absolute; bottom:24px; right:28px; font-family:'Bebas Neue',sans-serif; font-size:22px; color:rgba(255,255,255,0.2); letter-spacing:2px; }
+
+  /* Form */
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+  .form-group { display:flex; flex-direction:column; gap:6px; animation:fadeUp 0.6s ease both; }
+  .form-group:nth-child(1){animation-delay:0.2s} .form-group:nth-child(2){animation-delay:0.25s}
+  .form-group:nth-child(3){animation-delay:0.3s} .form-group:nth-child(4){animation-delay:0.35s}
+  .form-group label { font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--ink); }
+  .form-control { padding:13px 16px; border:1.5px solid var(--border); border-radius:13px; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); outline:none; transition:all 0.3s; }
+  .form-control:focus { border-color:var(--accent); background:#fff; box-shadow:0 0 0 4px rgba(232,72,85,0.07); transform:translateY(-1px); }
+  .form-control::placeholder { color:#ccc; }
+
+  /* UPI section */
+  .upi-section { display:none; }
+  .upi-section.show { display:block; }
+  .upi-logos { display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .upi-logo { width:64px; height:40px; border-radius:10px; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; cursor:pointer; transition:all 0.25s; background:#fff; }
+  .upi-logo:hover, .upi-logo.selected { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); box-shadow:0 4px 12px rgba(232,72,85,0.15); }
+
+  /* Netbanking */
+  .netbank-section { display:none; }
+  .netbank-section.show { display:block; }
+  .bank-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-bottom:20px; }
+  .bank-item { border:1.5px solid var(--border); border-radius:12px; padding:12px 8px; text-align:center; cursor:pointer; transition:all 0.25s; font-size:12px; font-weight:600; }
+  .bank-item:hover, .bank-item.selected { border-color:var(--accent); color:var(--accent); background:rgba(232,72,85,0.04); }
+  .bank-icon { font-size:22px; display:block; margin-bottom:5px; }
+
+  /* COD section */
+  .cod-section { display:none; }
+  .cod-section.show { display:block; }
+  .cod-box { background:var(--cream); border-radius:18px; padding:24px; text-align:center; }
+  .cod-icon { font-size:52px; margin-bottom:12px; display:block; animation:floatY 2s ease-in-out infinite; }
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .cod-title { font-family:'Bebas Neue',sans-serif; font-size:24px; margin-bottom:6px; }
+  .cod-desc { font-size:14px; color:var(--muted); font-weight:300; line-height:1.6; }
+
+  /* ── ORDER SUMMARY ── */
+  .summary-card { background:#fff; border-radius:24px; padding:26px; box-shadow:0 4px 24px rgba(0,0,0,0.06); position:sticky; top:90px; animation:fadeUp 0.7s 0.15s ease both; }
+  .summary-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1px; margin-bottom:18px; }
+  .summary-title .char { display:inline-block; animation:charPop 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+  .s-line { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border); font-size:14px; animation:fadeUp 0.5s ease both; }
+  .s-line:last-of-type { border-bottom:none; }
+  .s-label { color:var(--muted); }
+  .s-val { font-weight:600; }
+  .s-val.free { color:#16a34a; }
+  .total-row { display:flex; justify-content:space-between; align-items:center; padding:14px 0 0; margin-top:6px; border-top:2px solid var(--ink); font-size:21px; font-weight:800; animation:fadeUp 0.5s 0.3s ease both; }
+
+  /* Amount highlight */
+  .amount-highlight { background:linear-gradient(135deg,rgba(232,72,85,0.08),rgba(255,107,53,0.06)); border:1.5px solid rgba(232,72,85,0.15); border-radius:16px; padding:16px 20px; margin:16px 0; display:flex; justify-content:space-between; align-items:center; animation:fadeUp 0.5s 0.35s ease both; }
+  .amount-label { font-size:13px; color:var(--muted); }
+  .amount-value { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--accent); letter-spacing:1px; }
+
+  /* Pay button */
+  .pay-btn { width:100%; padding:18px; background:var(--ink); color:#fff; border:none; border-radius:16px; font-size:16px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:all 0.3s; margin-top:16px; letter-spacing:0.5px; position:relative; overflow:hidden; animation:fadeUp 0.6s 0.4s ease both; }
+  .pay-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--accent),var(--accent2)); opacity:0; transition:opacity 0.3s; }
+  .pay-btn:hover::before { opacity:1; }
+  .pay-btn::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent); transform:skewX(-20deg); transition:left 0.5s; }
+  .pay-btn:hover::after { left:160%; }
+  .pay-btn:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(232,72,85,0.38); }
+  .pay-btn span { position:relative; z-index:1; }
+
+  .secure-badges { display:flex; justify-content:center; gap:16px; margin-top:14px; flex-wrap:wrap; animation:fadeUp 0.5s 0.45s ease both; }
+  .sec-badge { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--muted); }
+
+  /* ── PROCESSING OVERLAY ── */
+  .processing-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(12px); z-index:3000; display:none; align-items:center; justify-content:center; flex-direction:column; }
+  .processing-overlay.show { display:flex; }
+  .proc-spinner { width:100px; height:100px; position:relative; margin-bottom:32px; }
+  .proc-ring { position:absolute; inset:0; border-radius:50%; border:3px solid transparent; animation:spin 1.2s linear infinite; }
+  .proc-ring:nth-child(1) { border-top-color:var(--accent); }
+  .proc-ring:nth-child(2) { border-right-color:var(--gold); animation-duration:1.8s; inset:10px; animation-direction:reverse; }
+  .proc-ring:nth-child(3) { border-bottom-color:rgba(255,255,255,0.2); animation-duration:2.4s; inset:20px; }
+  .proc-icon { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  @keyframes spin { to{transform:rotate(360deg)} }
+  .proc-words { text-align:center; }
+  .proc-word { display:block; overflow:hidden; }
+  .proc-word span { display:block; font-family:'Bebas Neue',sans-serif; color:#fff; animation:wordUp 0.8s cubic-bezier(.16,1,.3,1) both; }
+  .proc-word:nth-child(1) span { font-size:42px; animation-delay:0.1s; }
+  .proc-word:nth-child(2) span { font-size:42px; color:var(--accent); animation-delay:0.25s; }
+  .proc-sub { font-size:14px; color:rgba(255,255,255,0.5); margin-top:12px; animation:fadeUp 0.6s 0.5s ease both; }
+  .proc-bar-wrap { width:260px; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; margin-top:24px; overflow:hidden; animation:fadeUp 0.6s 0.6s ease both; }
+  .proc-bar { height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); border-radius:2px; width:0%; transition:width 0.3s; }
+
+  /* ── SUCCESS OVERLAY ── */
+  .success-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(12px); z-index:4000; display:none; align-items:center; justify-content:center; }
+  .success-overlay.show { display:flex; }
+  .success-box { background:#fff; border-radius:32px; padding:52px 44px; text-align:center; max-width:480px; width:90%; animation:popIn 0.6s cubic-bezier(.34,1.56,.64,1) both; position:relative; overflow:hidden; }
+  .success-box::before { content:''; position:absolute; top:-80px; right:-80px; width:250px; height:250px; border-radius:50%; background:radial-gradient(circle,rgba(34,197,94,0.1) 0%,transparent 70%); }
+  .s-emoji { font-size:72px; display:block; margin-bottom:14px; animation:successBounce 0.9s 0.3s ease both; }
+  @keyframes successBounce { 0%{transform:scale(0) rotate(-20deg);opacity:0} 60%{transform:scale(1.2) rotate(5deg)} 100%{transform:scale(1) rotate(0);opacity:1} }
+  .s-words { margin-bottom:12px; }
+  .s-words .w { display:block; overflow:hidden; }
+  .s-words .w span { display:block; font-family:'Bebas Neue',sans-serif; font-size:46px; line-height:1; animation:wordUp 0.8s cubic-bezier(.16,1,.3,1) both; }
+  .s-words .w:nth-child(1) span { animation-delay:0.1s; }
+  .s-words .w:nth-child(2) span { animation-delay:0.25s; color:#16a34a; }
+  .s-sub { font-size:15px; color:var(--muted); line-height:1.65; margin:12px 0 24px; font-weight:300; animation:fadeUp 0.6s 0.5s ease both; }
+
+  /* Order ID box */
+  .order-id-box { background:var(--cream); border-radius:14px; padding:14px 20px; margin:16px 0; display:flex; justify-content:space-between; align-items:center; animation:fadeUp 0.6s 0.55s ease both; }
+  .order-id-label { font-size:12px; color:var(--muted); font-weight:600; }
+  .order-id-val { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--ink); letter-spacing:1px; }
+
+  .s-btn-group { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; animation:fadeUp 0.6s 0.65s ease both; }
+  .s-btn { display:inline-block; padding:13px 28px; background:var(--ink); color:#fff; border-radius:100px; font-size:14px; font-weight:700; text-decoration:none; transition:all 0.25s; border:none; cursor:pointer; }
+  .s-btn:hover { background:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,72,85,0.35); }
+  .s-btn-outline { background:transparent; color:var(--ink); border:1.5px solid var(--border); }
+  .s-btn-outline:hover { background:var(--ink); color:#fff; border-color:var(--ink); }
+
+  /* Confetti */
+  .confetti-wrap { position:fixed; inset:0; pointer-events:none; z-index:5000; overflow:hidden; }
+  .c { position:absolute; top:-12px; border-radius:2px; animation:cFall linear infinite; }
+  @keyframes cFall { to{transform:translateY(110vh) rotate(720deg);opacity:0} }
+  @keyframes popIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+
+  @media(max-width:960px) { .main-wrap{grid-template-columns:1fr} .summary-card{position:static} }
+  @media(max-width:600px) { nav{padding:0 20px} .page-hero{padding:36px 24px} .form-grid{grid-template-columns:1fr} .main-wrap{padding:24px 16px} .bank-grid{grid-template-columns:repeat(2,1fr)} }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="confetti-wrap" id="confettiWrap" style="display:none;"></div>
+
+<!-- PROCESSING OVERLAY -->
+<div class="processing-overlay" id="processingOverlay">
+  <div class="proc-spinner">
+    <div class="proc-ring"></div>
+    <div class="proc-ring"></div>
+    <div class="proc-ring"></div>
+    <div class="proc-icon">💳</div>
+  </div>
+  <div class="proc-words">
+    <div class="proc-word"><span>PROCESSING</span></div>
+    <div class="proc-word"><span>PAYMENT</span></div>
+  </div>
+  <p class="proc-sub">Please wait, do not close this page...</p>
+  <div class="proc-bar-wrap"><div class="proc-bar" id="procBar"></div></div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <span class="s-emoji">🎉</span>
+    <div class="s-words">
+      <div class="w"><span>ORDER</span></div>
+      <div class="w"><span>CONFIRMED!</span></div>
+    </div>
+    <p class="s-sub">Your payment was successful and your order has been placed. We'll start processing it right away!</p>
+    <div class="order-id-box">
+      <span class="order-id-label">Order ID</span>
+      <span class="order-id-val" id="orderIdDisplay">SC-000000</span>
+    </div>
+    <div class="s-btn-group">
+      <a href="/profile" class="s-btn">Track Order →</a>
+      <a href="/" class="s-btn s-btn-outline">Continue Shopping</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Shopy<span>Cart</span></a>
+  <div class="nav-steps">
+    <div class="step-pill done">✓ Cart</div>
+    <span class="step-sep">›</span>
+    <div class="step-pill done">✓ Details</div>
+    <span class="step-sep">›</span>
+    <div class="step-pill active">💳 Payment</div>
+  </div>
+  <a href="/checkout/" style="font-size:13px;color:var(--muted);text-decoration:none;">← Back</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="v-strip"><span>SECURE PAYMENT · SHOPYCART · SSL ENCRYPTED · SAFE CHECKOUT · SECURE PAYMENT · SHOPYCART ·</span></div>
+  <span class="hero-label">🔒 100% Secure & Encrypted</span>
+  <div class="hero-title">
+    <span class="word"><span class="word-inner">COMPLETE</span></span>
+    <span class="word"><span class="word-inner">PAYMENT</span></span>
+  </div>
+  <p class="hero-sub">Choose your payment method and place your order securely</p>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- LEFT: PAYMENT FORM -->
+  <div>
+    <div class="pay-card">
+      <div class="pay-card-title" id="payTitle">Choose Payment Method</div>
+      <p class="pay-card-sub">All transactions are secure and encrypted</p>
+
+      <!-- Method Tabs -->
+      <div class="method-tabs">
+        <button class="method-tab active" onclick="switchMethod('card', this)">
+          <span class="tab-icon">💳</span> Credit/Debit Card
+        </button>
+        <button class="method-tab" onclick="switchMethod('upi', this)">
+          <span class="tab-icon">📱</span> UPI
+        </button>
+        <button class="method-tab" onclick="switchMethod('netbanking', this)">
+          <span class="tab-icon">🏦</span> Net Banking
+        </button>
+        <button class="method-tab" onclick="switchMethod('cod', this)">
+          <span class="tab-icon">💵</span> Cash on Delivery
+        </button>
+      </div>
+
+      <!-- CARD SECTION -->
+      <div id="cardSection">
+        <!-- Animated Card Visual -->
+        <div class="card-visual">
+          <div class="card-chip"></div>
+          <div class="card-number-display">
+            <span id="cardNumDisplay">•••• •••• •••• ••••</span>
+          </div>
+          <div class="card-bottom">
+            <div>
+              <div class="card-holder-label">Card Holder</div>
+              <div class="card-holder-name" id="cardNameDisplay">YOUR NAME</div>
+            </div>
+            <div>
+              <div class="card-expiry-label">Expires</div>
+              <div class="card-expiry-val" id="cardExpDisplay">MM/YY</div>
+            </div>
+          </div>
+          <div class="card-brand">VISA</div>
+        </div>
+
+        <div class="form-grid" style="grid-template-columns:1fr; margin-bottom:14px;">
+          <div class="form-group" style="animation-delay:0.2s">
+            <label>Card Number</label>
+            <input type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNum" oninput="formatCardNum(this)" autocomplete="off">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group" style="animation-delay:0.25s">
+            <label>Card Holder Name</label>
+            <input type="text" class="form-control" placeholder="Name on card" id="cardName" oninput="document.getElementById('cardNameDisplay').textContent=this.value.toUpperCase()||'YOUR NAME'">
+          </div>
+          <div class="form-group" style="animation-delay:0.3s">
+            <label>Expiry Date</label>
+            <input type="text" class="form-control" placeholder="MM/YY" maxlength="5" id="cardExp" oninput="formatExpiry(this)">
+          </div>
+        </div>
+        <div class="form-grid" style="margin-bottom:0">
+          <div class="form-group" style="animation-delay:0.35s">
+            <label>CVV</label>
+            <input type="password" class="form-control" placeholder="•••" maxlength="3" id="cardCvv">
+          </div>
+          <div class="form-group" style="animation-delay:0.4s; justify-content:flex-end;">
+            <label style="opacity:0">.</label>
+            <div style="font-size:12px;color:var(--muted);padding:13px 0;">🔒 Your card details are encrypted</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPI SECTION -->
+      <div id="upiSection" class="upi-section">
+        <div class="upi-logos">
+          <div class="upi-logo" onclick="selectUpi(this)">GPay</div>
+          <div class="upi-logo" onclick="selectUpi(this)">PhonePe</div>
+          <div class="upi-logo" onclick="selectUpi(this)">Paytm</div>
+          <div class="upi-logo" onclick="selectUpi(this)">BHIM</div>
+          <div class="upi-logo" onclick="selectUpi(this)">Amazon</div>
+        </div>
+        <div class="form-group">
+          <label>Or Enter UPI ID</label>
+          <input type="text" class="form-control" placeholder="yourname@upi" id="upiId">
+        </div>
+      </div>
+
+      <!-- NET BANKING SECTION -->
+      <div id="netbankSection" class="netbank-section">
+        <div class="bank-grid">
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>SBI</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>HDFC</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>ICICI</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>Axis</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>Kotak</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>PNB</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>BOB</div>
+          <div class="bank-item" onclick="selectBank(this)"><span class="bank-icon">🏦</span>Other</div>
+        </div>
+      </div>
+
+      <!-- COD SECTION -->
+      <div id="codSection" class="cod-section">
+        <div class="cod-box">
+          <span class="cod-icon">💵</span>
+          <div class="cod-title">Cash on Delivery</div>
+          <p class="cod-desc">Pay with cash when your order arrives at your doorstep. Available for orders up to ₹10,000.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: SUMMARY -->
+  <div class="summary-card">
+    <div class="summary-title" id="summaryTitle">Order Summary</div>
+    <div id="summaryItems"></div>
+    <div class="s-line"><span class="s-label">Subtotal</span><span class="s-val" id="subtotalVal">₹0</span></div>
+    <div class="s-line"><span class="s-label">Delivery</span><span class="s-val free">FREE 🚚</span></div>
+    <div class="s-line"><span class="s-label">Tax (GST)</span><span class="s-val">Included</span></div>
+    <div class="total-row"><span>Total</span><span id="totalVal">₹0</span></div>
+
+    <div class="amount-highlight">
+      <span class="amount-label">Amount to Pay</span>
+      <span class="amount-value" id="amountToPay">₹0</span>
+    </div>
+
+    <button class="pay-btn" onclick="processPayment()">
+      <span id="payBtnText">🔒 Place Order & Pay Now</span>
+    </button>
+
+    <div class="secure-badges">
+      <div class="sec-badge">🔒 SSL Secure</div>
+      <div class="sec-badge">✅ 100% Safe</div>
+      <div class="sec-badge">↩️ Easy Returns</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Hidden form to submit order to Django -->
+<form id="orderForm" method="POST" action="/checkout/" style="display:none;">
+  {% csrf_token %}
+  <input type="hidden" name="itemsJson" id="itemsJson">
+  <input type="hidden" name="amt" id="amt">
+  <input type="hidden" name="name" id="fname" value="{{ user.get_full_name|default:user.username }}">
+  <input type="hidden" name="email" id="femail" value="{{ user.email }}">
+  <input type="hidden" name="address1" id="faddress1">
+  <input type="hidden" name="address2" id="faddress2">
+  <input type="hidden" name="city" id="fcity">
+  <input type="hidden" name="state" id="fstate">
+  <input type="hidden" name="zip_code" id="fzip">
+  <input type="hidden" name="phone" id="fphone">
+</form>
+
+<script>
+  // ── CURSOR ──
+  const cursor=document.getElementById('cursor'), ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;});
+  (function anim(){rx+=(mx-rx-20)*0.12;ry+=(my-ry-20)*0.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(anim);})();
+  document.querySelectorAll('a,button,input,.method-tab,.upi-logo,.bank-item').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';});
+  });
+
+  // ── CHAR ANIMATION ──
+  function animChars(el, delay=0.3) {
+    if(!el) return;
+    el.innerHTML = el.textContent.split('').map((c,i)=>
+      `<span class="char" style="animation-delay:${delay+i*0.05}s">${c===' '?'&nbsp;':c}</span>`
+    ).join('');
+  }
+  animChars(document.getElementById('payTitle'), 0.4);
+  animChars(document.getElementById('summaryTitle'), 0.3);
+
+  // ── LOAD CART ──
+  const cart = JSON.parse(localStorage.getItem('cart') || '{}');
+  const orderData = JSON.parse(localStorage.getItem('orderData') || '{}');
+  const emojis = ['👗','📱','💄','⌚','🎧','👟','🏠','📚','🧴','👜'];
+  let total = 0;
+  const sumItems = document.getElementById('summaryItems');
+
+  if (Object.keys(cart).length > 0) {
+    Object.entries(cart).forEach(([id,item],idx)=>{
+      const name=item[1],qty=item[0],price=item[2];
+      total += qty*price;
+      sumItems.innerHTML += `<div class="s-line"><span class="s-label">${name.substring(0,22)}${name.length>22?'...':''} ×${qty}</span><span class="s-val">₹${(qty*price).toLocaleString('en-IN')}</span></div>`;
+    });
+  }
+  const fmt = n => `₹${n.toLocaleString('en-IN')}`;
+  document.getElementById('subtotalVal').textContent = fmt(total);
+  document.getElementById('totalVal').textContent = fmt(total);
+  document.getElementById('amountToPay').textContent = fmt(total);
+  document.getElementById('itemsJson').value = JSON.stringify(cart);
+  document.getElementById('amt').value = total;
+
+  // Pre-fill from orderData if available
+  if (orderData.address1) document.getElementById('faddress1').value = orderData.address1;
+  if (orderData.address2) document.getElementById('faddress2').value = orderData.address2;
+  if (orderData.city)     document.getElementById('fcity').value = orderData.city;
+  if (orderData.state)    document.getElementById('fstate').value = orderData.state;
+  if (orderData.zip_code) document.getElementById('fzip').value = orderData.zip_code;
+  if (orderData.phone)    document.getElementById('fphone').value = orderData.phone;
+  if (orderData.name)     document.getElementById('fname').value = orderData.name;
+
+  // ── CARD FORMATTING ──
+  function formatCardNum(input) {
+    let v = input.value.replace(/\D/g,'').substring(0,16);
+    input.value = v.replace(/(.{4})/g,'$1 ').trim();
+    const masked = v.substring(0,4).padEnd(16,'•');
+    const display = masked.replace(/(.{4})/g,'$1 ').trim();
+    document.getElementById('cardNumDisplay').textContent = display;
+    // Detect card brand
+    const brand = v[0]==='4'?'VISA':v.startsWith('5')?'MASTERCARD':v.startsWith('3')?'AMEX':'CARD';
+    document.querySelector('.card-brand').textContent = brand;
+  }
+  function formatExpiry(input) {
+    let v = input.value.replace(/\D/g,'');
+    if (v.length>=2) v = v.substring(0,2)+'/'+v.substring(2,4);
+    input.value = v;
+    document.getElementById('cardExpDisplay').textContent = v || 'MM/YY';
+  }
+
+  // ── SWITCH PAYMENT METHOD ──
+  function switchMethod(method, btn) {
+    document.querySelectorAll('.method-tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('cardSection').style.display    = method==='card'       ? 'block':'none';
+    document.getElementById('upiSection').className        = 'upi-section'      + (method==='upi'        ? ' show':'');
+    document.getElementById('netbankSection').className    = 'netbank-section'   + (method==='netbanking' ? ' show':'');
+    document.getElementById('codSection').className        = 'cod-section'       + (method==='cod'        ? ' show':'');
+    const labels = { card:'💳 Place Order & Pay Now', upi:'📱 Pay via UPI', netbanking:'🏦 Pay via Net Banking', cod:'📦 Place Order (COD)' };
+    document.getElementById('payBtnText').textContent = labels[method];
+  }
+
+  function selectUpi(el) { document.querySelectorAll('.upi-logo').forEach(u=>u.classList.remove('selected')); el.classList.add('selected'); }
+  function selectBank(el) { document.querySelectorAll('.bank-item').forEach(b=>b.classList.remove('selected')); el.classList.add('selected'); }
+
+  // ── PROCESS PAYMENT ──
+  function processPayment() {
+    if (Object.keys(cart).length === 0) { alert('Your cart is empty!'); return; }
+
+    // Show processing overlay
+    const overlay = document.getElementById('processingOverlay');
+    overlay.classList.add('show');
+
+    // Animate progress bar
+    const bar = document.getElementById('procBar');
+    let pct = 0;
+    const interval = setInterval(()=>{
+      pct += Math.random()*15;
+      if (pct > 95) pct = 95;
+      bar.style.width = pct+'%';
+    }, 200);
+
+    // After 2.5s — complete and show success
+    setTimeout(()=>{
+      clearInterval(interval);
+      bar.style.width = '100%';
+      setTimeout(()=>{
+        overlay.classList.remove('show');
+        showSuccess();
+      }, 400);
+    }, 2500);
+  }
+
+  function showSuccess() {
+    // Generate random order ID
+    const orderId = 'SC-' + Math.floor(100000 + Math.random()*900000);
+    document.getElementById('orderIdDisplay').textContent = orderId;
+
+    // Show success overlay
+    document.getElementById('successOverlay').classList.add('show');
+
+    // Launch confetti
+    const cw = document.getElementById('confettiWrap');
+    cw.style.display = 'block';
+    const colors = ['#e84855','#ff6b35','#f0b429','#22c55e','#3b82f6','#a855f7','#fff'];
+    for(let i=0;i<100;i++){
+      const el=document.createElement('div');
+      el.className='c';
+      el.style.cssText=`left:${Math.random()*100}%;width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*1.5}s;opacity:${0.7+Math.random()*0.3};`;
+      cw.appendChild(el);
+    }
+
+    // Submit real order to Django in background
+    document.getElementById('orderForm').submit();
+
+    // Clear cart
+    localStorage.removeItem('cart');
+    localStorage.removeItem('orderData');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Orders — ShopyCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0a0a0a; --cream:#faf8f5; --accent:#e84855; --accent2:#ff6b35; --muted:#6b6b6b; --border:rgba(0,0,0,0.09); --white:#fff; --gold:#f0b429; --green:#16a34a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); min-height:100vh; overflow-x:hidden; }
+
+  /* ── CURSOR ── */
+  .cursor { width:12px; height:12px; background:var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transition:transform 0.15s ease,width 0.2s,height 0.2s; mix-blend-mode:multiply; }
+  .cursor-ring { width:40px; height:40px; border:1.5px solid var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); opacity:0.6; }
+
+  /* ── NAV ── */
+  nav { position:sticky; top:0; z-index:500; background:rgba(250,248,245,0.92); backdrop-filter:blur(24px); border-bottom:1px solid var(--border); padding:0 48px; height:70px; display:flex; align-items:center; justify-content:space-between; animation:fadeDown 0.7s ease both; }
+  .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--ink); text-decoration:none; }
+  .nav-logo span { color:var(--accent); }
+  .nav-right { display:flex; align-items:center; gap:12px; }
+  .nav-btn { padding:9px 20px; border-radius:100px; font-size:13px; font-weight:700; text-decoration:none; transition:all 0.25s; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; }
+  .btn-outline { border:1.5px solid var(--border); color:var(--ink); background:transparent; }
+  .btn-outline:hover { border-color:var(--ink); }
+  .btn-dark { background:var(--ink); color:#fff; }
+  .btn-dark:hover { background:var(--accent); transform:translateY(-1px); }
+
+  /* ── HERO ── */
+  .page-hero { background:var(--ink); padding:52px 48px 44px; position:relative; overflow:hidden; }
+  .orb { position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; }
+  .orb1 { width:420px; height:420px; background:rgba(232,72,85,0.18); top:-150px; right:-100px; animation:orbFloat 9s ease-in-out infinite; }
+  .orb2 { width:300px; height:300px; background:rgba(240,180,41,0.14); bottom:-80px; left:10%; animation:orbFloat 12s ease-in-out infinite reverse; }
+  .orb3 { width:200px; height:200px; background:rgba(255,107,53,0.1); top:30%; left:40%; animation:orbFloat 8s ease-in-out infinite; }
+  @keyframes orbFloat { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+  .v-strip { position:absolute; right:56px; top:0; bottom:0; width:22px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .v-strip span { font-family:'Bebas Neue',sans-serif; font-size:9px; letter-spacing:3px; color:rgba(255,255,255,0.06); writing-mode:vertical-rl; animation:scrollUp 16s linear infinite; white-space:nowrap; }
+  @keyframes scrollUp { from{transform:translateY(100%)} to{transform:translateY(-100%)} }
+
+  /* Animated heading */
+  .hero-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:block; animation:fadeUp 0.6s 0.2s ease both; }
+  .hero-title { font-family:'Bebas Neue',sans-serif; line-height:0.88; margin-bottom:14px; }
+  .word { display:block; overflow:hidden; }
+  .word-inner { display:block; animation:wordUp 0.9s cubic-bezier(.16,1,.3,1) both; color:#fff; }
+  .word:nth-child(1) .word-inner { font-size:clamp(52px,7vw,90px); animation-delay:0.1s; }
+  .word:nth-child(2) .word-inner { font-size:clamp(52px,7vw,90px); animation-delay:0.25s; color:var(--accent); display:inline-block; position:relative; }
+  .word:nth-child(2) .word-inner::after { content:''; position:absolute; bottom:6px; left:0; height:3px; width:0; background:var(--accent2); border-radius:2px; animation:lineGrow 0.5s 1.1s ease forwards; }
+  .hero-sub { font-size:15px; color:rgba(255,255,255,0.4); font-weight:300; animation:fadeUp 0.7s 0.5s ease both; }
+  @keyframes wordUp { from{transform:translateY(110%);opacity:0} to{transform:translateY(0);opacity:1} }
+  @keyframes lineGrow { to{width:100%} }
+
+  /* User info strip */
+  .user-strip { display:flex; align-items:center; gap:16px; margin-top:28px; animation:fadeUp 0.7s 0.55s ease both; position:relative; z-index:2; }
+  .user-avatar { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; color:#fff; flex-shrink:0; }
+  .user-name { font-size:16px; font-weight:700; color:#fff; }
+  .user-email { font-size:13px; color:rgba(255,255,255,0.45); }
+  .user-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,0.08); padding:4px 12px; border-radius:100px; font-size:11px; color:rgba(255,255,255,0.6); margin-top:4px; }
+
+  /* ── MAIN ── */
+  .main-wrap { max-width:1100px; margin:0 auto; padding:44px 24px; display:grid; grid-template-columns:280px 1fr; gap:28px; align-items:start; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { animation:fadeUp 0.7s 0.1s ease both; }
+  .sidebar-card { background:var(--white); border-radius:22px; padding:24px; box-shadow:0 4px 24px rgba(0,0,0,0.06); margin-bottom:20px; }
+  .sidebar-title { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1px; margin-bottom:16px; }
+  .sidebar-title .char { display:inline-block; animation:charPop 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+  @keyframes charPop { from{transform:translateY(14px) scale(0.8);opacity:0} to{transform:translateY(0) scale(1);opacity:1} }
+
+  .side-link { display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; font-size:14px; font-weight:600; text-decoration:none; color:var(--ink); transition:all 0.25s; margin-bottom:4px; cursor:pointer; border:none; background:none; width:100%; font-family:'DM Sans',sans-serif; }
+  .side-link:hover { background:var(--cream); transform:translateX(4px); }
+  .side-link.active { background:var(--ink); color:#fff; }
+  .side-link.active:hover { background:var(--accent); }
+  .side-icon { font-size:18px; }
+
+  /* Stats */
+  .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-box { background:var(--cream); border-radius:16px; padding:16px; text-align:center; transition:all 0.3s; }
+  .stat-box:hover { background:rgba(232,72,85,0.06); transform:translateY(-2px); }
+  .stat-num { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--accent); line-height:1; }
+  .stat-label { font-size:11px; color:var(--muted); font-weight:600; margin-top:2px; letter-spacing:0.5px; }
+
+  /* ── ORDERS SECTION ── */
+  .orders-section { animation:fadeUp 0.7s 0.2s ease both; }
+  .section-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; }
+  .section-title { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:1px; }
+  .section-title .char { display:inline-block; animation:charPop 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+  .order-count { font-size:13px; color:var(--muted); background:var(--white); padding:5px 14px; border-radius:100px; font-weight:600; }
+
+  /* Order card */
+  .order-card { background:var(--white); border-radius:22px; padding:24px; margin-bottom:18px; box-shadow:0 4px 20px rgba(0,0,0,0.05); transition:all 0.35s; animation:fadeUp 0.6s ease both; border:1.5px solid transparent; }
+  .order-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.1); border-color:rgba(232,72,85,0.15); }
+
+  .order-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
+  .order-id { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:1px; }
+  .order-id span { color:var(--accent); }
+  .order-date { font-size:12px; color:var(--muted); margin-top:2px; }
+
+  /* Status badge */
+  .status-badge { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:100px; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+  .status-paid { background:rgba(34,197,94,0.1); color:var(--green); border:1.5px solid rgba(34,197,94,0.2); }
+  .status-pending { background:rgba(240,180,41,0.1); color:#b45309; border:1.5px solid rgba(240,180,41,0.2); }
+  .status-processing { background:rgba(59,130,246,0.1); color:#2563eb; border:1.5px solid rgba(59,130,246,0.2); }
+
+  /* Order items preview */
+  .order-items { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .order-item-pill { background:var(--cream); padding:6px 14px; border-radius:100px; font-size:12px; font-weight:600; color:var(--ink); transition:all 0.2s; }
+  .order-item-pill:hover { background:rgba(232,72,85,0.08); color:var(--accent); }
+
+  /* Order footer */
+  .order-footer { display:flex; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid var(--border); flex-wrap:wrap; gap:10px; }
+  .order-amount { font-size:22px; font-weight:800; }
+  .order-amount span { font-size:13px; color:var(--muted); font-weight:400; }
+
+  /* Tracking steps */
+  .tracking-wrap { margin-top:16px; padding-top:16px; border-top:1px solid var(--border); display:none; }
+  .order-card.expanded .tracking-wrap { display:block; }
+  .track-steps { display:flex; gap:0; }
+  .track-step { flex:1; text-align:center; position:relative; }
+  .track-step::before { content:''; position:absolute; top:14px; left:50%; right:-50%; height:2px; background:var(--border); z-index:0; }
+  .track-step:last-child::before { display:none; }
+  .track-dot { width:28px; height:28px; border-radius:50%; margin:0 auto 8px; display:flex; align-items:center; justify-content:center; font-size:13px; position:relative; z-index:1; transition:all 0.3s; }
+  .track-dot.done { background:var(--green); color:#fff; }
+  .track-dot.active { background:var(--accent); color:#fff; animation:trackPulse 1.5s ease-in-out infinite; }
+  .track-dot.pending { background:var(--cream); border:2px solid var(--border); color:var(--muted); }
+  @keyframes trackPulse { 0%,100%{box-shadow:0 0 0 0 rgba(232,72,85,0)} 50%{box-shadow:0 0 0 6px rgba(232,72,85,0.15)} }
+  .track-label { font-size:10px; font-weight:700; color:var(--muted); letter-spacing:0.3px; }
+  .track-step.done .track-label { color:var(--green); }
+  .track-step.active .track-label { color:var(--accent); }
+
+  /* Update descriptions */
+  .update-list { margin-top:14px; }
+  .update-item { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--border); animation:fadeUp 0.4s ease both; }
+  .update-item:last-child { border-bottom:none; }
+  .update-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:5px; }
+  .update-text { font-size:13px; color:var(--ink); line-height:1.5; }
+  .update-time { font-size:11px; color:var(--muted); }
+
+  /* Action buttons */
+  .order-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .action-btn { padding:8px 18px; border-radius:100px; font-size:12px; font-weight:700; border:1.5px solid var(--border); background:transparent; cursor:pointer; transition:all 0.25s; font-family:'DM Sans',sans-serif; text-decoration:none; color:var(--ink); }
+  .action-btn:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
+  .action-btn.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .action-btn.primary:hover { background:var(--accent); border-color:var(--accent); }
+  .expand-btn { display:flex; align-items:center; gap:5px; }
+  .expand-icon { transition:transform 0.3s; }
+  .order-card.expanded .expand-icon { transform:rotate(180deg); }
+
+  /* Empty state */
+  .empty-state { background:var(--white); border-radius:24px; padding:64px 40px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.05); animation:fadeUp 0.7s ease both; }
+  .empty-icon { font-size:72px; display:block; margin-bottom:16px; animation:floatY 2.5s ease-in-out infinite; }
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .empty-title { font-family:'Bebas Neue',sans-serif; font-size:36px; margin-bottom:8px; }
+  .empty-sub { font-size:15px; color:var(--muted); font-weight:300; line-height:1.6; margin-bottom:28px; }
+  .shop-btn { display:inline-block; padding:14px 36px; background:var(--ink); color:#fff; border-radius:100px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.25s; position:relative; overflow:hidden; }
+  .shop-btn::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent); transform:skewX(-20deg); transition:left 0.5s; }
+  .shop-btn:hover::after { left:160%; }
+  .shop-btn:hover { background:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,72,85,0.35); }
+
+  /* Messages */
+  .msg { padding:12px 16px; border-radius:12px; font-size:14px; font-weight:500; margin-bottom:14px; display:flex; align-items:center; gap:8px; animation:fadeUp 0.4s ease both; }
+  .msg-danger { background:rgba(232,72,85,0.1); color:var(--accent); border:1px solid rgba(232,72,85,0.2); }
+  .msg-success { background:rgba(34,197,94,0.1); color:var(--green); border:1px solid rgba(34,197,94,0.2); }
+  .msg-info { background:rgba(59,130,246,0.1); color:#2563eb; border:1px solid rgba(59,130,246,0.2); }
+
+  /* ── WISHLIST PANEL ── */
+  .wishlist-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:2000; opacity:0; pointer-events:none; transition:opacity 0.3s; backdrop-filter:blur(4px); }
+  .wishlist-overlay.open { opacity:1; pointer-events:all; }
+  .wishlist-panel { position:fixed; right:0; top:0; bottom:0; width:420px; background:#fff; z-index:2001; transform:translateX(100%); transition:transform 0.4s cubic-bezier(.25,.46,.45,.94); display:flex; flex-direction:column; box-shadow:-20px 0 60px rgba(0,0,0,0.15); }
+  .wishlist-panel.open { transform:translateX(0); }
+  .wl-header { padding:28px 28px 20px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .wl-header h3 { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:1px; }
+  .wl-close { background:none; border:none; font-size:22px; cursor:pointer; color:var(--muted); transition:all 0.2s; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .wl-close:hover { background:var(--cream); color:var(--ink); }
+  .wl-body { flex:1; overflow-y:auto; padding:20px 28px; }
+  .wl-item { display:flex; gap:14px; align-items:center; padding:14px 0; border-bottom:1px solid var(--border); animation:fadeSlideUp 0.4s ease both; }
+  .wl-item:last-child { border-bottom:none; }
+  .wl-img { width:64px; height:64px; border-radius:14px; object-fit:cover; background:var(--cream); flex-shrink:0; }
+  .wl-name { font-size:14px; font-weight:600; margin-bottom:4px; line-height:1.3; }
+  .wl-price { font-size:15px; font-weight:800; color:var(--accent); }
+  .wl-remove { background:none; border:none; font-size:18px; cursor:pointer; color:var(--muted); margin-left:auto; flex-shrink:0; transition:all 0.2s; padding:4px; }
+  .wl-remove:hover { color:var(--accent); transform:scale(1.2); }
+  .wl-footer { padding:20px 28px 28px; border-top:1px solid var(--border); }
+  .wl-shop-btn { width:100%; padding:15px; background:var(--accent); color:#fff; border:none; border-radius:14px; font-size:15px; font-weight:700; cursor:pointer; transition:all 0.25s; font-family:'DM Sans',sans-serif; text-decoration:none; display:block; text-align:center; }
+  .wl-shop-btn:hover { background:#d43040; transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,72,85,0.35); }
+  .wl-empty { text-align:center; padding:60px 20px; color:var(--muted); }
+  .wl-empty-icon { font-size:52px; display:block; margin-bottom:12px; animation:floatWL 2.5s ease-in-out infinite; }
+  @keyframes floatWL { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .wl-empty-title { font-family:'Bebas Neue',sans-serif; font-size:24px; margin-bottom:8px; }
+  .wl-empty-sub { font-size:14px; line-height:1.6; margin-bottom:20px; }
+
+  @keyframes fadeSlideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+
+  @media(max-width:900px) { .main-wrap{grid-template-columns:1fr} .sidebar{order:2} .orders-section{order:1} }
+  @media(max-width:600px) { nav{padding:0 20px} .page-hero{padding:36px 24px} .main-wrap{padding:24px 16px} .stats-grid{grid-template-columns:repeat(2,1fr)} .track-label{font-size:9px} }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Shopy<span>Cart</span></a>
+  <div class="nav-right">
+    <a href="/" class="nav-btn btn-outline">← Shop More</a>
+    <a href="/auth/logout/" class="nav-btn btn-dark">Logout</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="v-strip"><span>MY ORDERS · SHOPYCART · TRACK DELIVERY · ORDER HISTORY · MY ORDERS · SHOPYCART ·</span></div>
+
+  <span class="hero-label">👤 My Account</span>
+  <div class="hero-title">
+    <span class="word"><span class="word-inner">MY</span></span>
+    <span class="word"><span class="word-inner">ORDERS</span></span>
+  </div>
+  <p class="hero-sub">Track your purchases and delivery status in real time</p>
+
+  <!-- User Info -->
+  <div class="user-strip">
+    <div class="user-avatar">{{ user.username|first|upper }}</div>
+    <div>
+      <div class="user-name">{{ user.username }}</div>
+      <div class="user-email">{{ user.email }}</div>
+      <div class="user-badge">⭐ ShopyCart Member</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title" id="sideTitle">My Account</div>
+      <a href="/profile" class="side-link active"><span class="side-icon">📦</span> My Orders</a>
+      <a href="/" class="side-link"><span class="side-icon">🛍️</span> Continue Shopping</a>
+      <button onclick="openWishlistPanel()" class="side-link"><span class="side-icon">❤️</span> Wishlist <span id="wishCountBadge" style="background:var(--accent);color:#fff;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-left:auto;">0</span></button>
+      <a href="/auth/logout/" class="side-link"><span class="side-icon">🚪</span> Logout</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="sidebar-card">
+      <div class="sidebar-title" id="statsTitle">Quick Stats</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">{{ items|length }}</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">{{ items|length }}</div>
+          <div class="stat-label">Delivered</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Pending</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">⭐</div>
+          <div class="stat-label">Member</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDERS -->
+  <div class="orders-section">
+
+    {% if messages %}
+      {% for message in messages %}
+      <div class="msg msg-{{ message.tags }}">
+        {% if message.tags == 'danger' %}⚠️{% else %}✅{% endif %} {{ message }}
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="section-head">
+      <div class="section-title" id="ordersTitle">Order History</div>
+      <div class="order-count">{{ items|length }} order{{ items|length|pluralize }}</div>
+    </div>
+
+    {% if items %}
+      {% for item in items %}
+      <div class="order-card" id="card{{ item.order_id }}" style="animation-delay:{{ forloop.counter0 }}00ms">
+
+        <div class="order-header">
+          <div>
+            <div class="order-id">ORDER <span>#{{ item.order_id }}</span></div>
+            <div class="order-date">Placed on {{ item.order_id|date:"d M Y" }} · via ShopyCart</div>
+          </div>
+          <div>
+            {% if item.paymentstatus == "PAID" %}
+            <span class="status-badge status-paid">✓ Paid</span>
+            {% elif item.paymentstatus %}
+            <span class="status-badge status-processing">⟳ {{ item.paymentstatus }}</span>
+            {% else %}
+            <span class="status-badge status-pending">⏳ Processing</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Items preview -->
+        <div class="order-items">
+          {% with items_parsed=item.items_json %}
+          <span class="order-item-pill">🛍️ {{ item.name }}'s order</span>
+          <span class="order-item-pill">📍 {{ item.city }}, {{ item.state }}</span>
+          <span class="order-item-pill">📞 {{ item.phone }}</span>
+          {% endwith %}
+        </div>
+
+        <!-- Footer -->
+        <div class="order-footer">
+          <div>
+            <div class="order-amount">₹{{ item.amount }} <span>total paid</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px;">📍 {{ item.address1 }}, {{ item.city }}</div>
+          </div>
+          <div class="order-actions">
+            <button class="action-btn expand-btn" onclick="toggleCard('{{ item.order_id }}')">
+              Track Order <span class="expand-icon">▼</span>
+            </button>
+            <a href="/" class="action-btn primary">Buy Again →</a>
+          </div>
+        </div>
+
+        <!-- Tracking -->
+        <div class="tracking-wrap">
+          <div class="track-steps">
+            <div class="track-step done">
+              <div class="track-dot done">✓</div>
+              <div class="track-label">Ordered</div>
+            </div>
+            <div class="track-step done">
+              <div class="track-dot done">✓</div>
+              <div class="track-label">Confirmed</div>
+            </div>
+            <div class="track-step active">
+              <div class="track-dot active">📦</div>
+              <div class="track-label">Processing</div>
+            </div>
+            <div class="track-step pending">
+              <div class="track-dot pending">🚚</div>
+              <div class="track-label">Shipped</div>
+            </div>
+            <div class="track-step pending">
+              <div class="track-dot pending">🏠</div>
+              <div class="track-label">Delivered</div>
+            </div>
+          </div>
+
+          {% if status %}
+          <div class="update-list" style="margin-top:18px;">
+            <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Latest Updates</div>
+            {% for s in status %}
+            <div class="update-item" style="animation-delay:{{ forloop.counter0 }}00ms">
+              <div class="update-dot"></div>
+              <div>
+                <div class="update-text">{{ s.update_desc }}</div>
+                <div class="update-time">{{ s.timestamp }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+      {% endfor %}
+
+    {% else %}
+    <!-- EMPTY STATE -->
+    <div class="empty-state">
+      <span class="empty-icon">🛍️</span>
+      <div class="empty-title" id="emptyTitle">No Orders Yet!</div>
+      <p class="empty-sub">Looks like you haven't placed any orders yet.<br>Start shopping and discover amazing deals!</p>
+      <a href="/" class="shop-btn">Start Shopping →</a>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<!-- WISHLIST OVERLAY & PANEL -->
+<div class="wishlist-overlay" id="wlOverlay" onclick="closeWishlistPanel()"></div>
+<div class="wishlist-panel" id="wlPanel">
+  <div class="wl-header">
+    <h3>❤️ My Wishlist</h3>
+    <button class="wl-close" onclick="closeWishlistPanel()">✕</button>
+  </div>
+  <div class="wl-body" id="wlBody"></div>
+  <div class="wl-footer" id="wlFooter" style="display:none">
+    <a href="/" class="wl-shop-btn">🛍️ Shop These Items →</a>
+  </div>
+</div>
+
+<script>
+  // ── CURSOR ──
+  const cursor=document.getElementById('cursor'), ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;});
+  (function anim(){rx+=(mx-rx-20)*0.12;ry+=(my-ry-20)*0.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(anim);})();
+  document.querySelectorAll('a,button,.order-card,.stat-box,.side-link').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';});
+  });
+
+  // ── CHAR ANIMATION ──
+  function animChars(el, delay=0.3) {
+    if(!el) return;
+    el.innerHTML = el.textContent.split('').map((c,i)=>
+      `<span class="char" style="animation-delay:${delay+i*0.05}s">${c===' '?'&nbsp;':c}</span>`
+    ).join('');
+  }
+  animChars(document.getElementById('sideTitle'), 0.3);
+  animChars(document.getElementById('statsTitle'), 0.4);
+  animChars(document.getElementById('ordersTitle'), 0.35);
+  animChars(document.getElementById('emptyTitle'), 0.4);
+
+  // ── TOGGLE ORDER CARD ──
+  function toggleCard(id) {
+    const card = document.getElementById('card'+id);
+    card.classList.toggle('expanded');
+  }
+
+  // ── COUNT UP ANIMATION ──
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const target = parseInt(el.textContent);
+    if (isNaN(target)) return;
+    let count = 0;
+    const step = Math.ceil(target / 20);
+    const iv = setInterval(() => {
+      count = Math.min(count + step, target);
+      el.textContent = count;
+      if (count >= target) clearInterval(iv);
+    }, 60);
+  });
+
+  // ── WISHLIST ──
+  // Always read FRESH from localStorage — never cache it
+  function getWL() {
+    return JSON.parse(localStorage.getItem('wishlist') || '{}');
+  }
+
+  // Update badge on page load
+  function updateBadge() {
+    const badge = document.getElementById('wishCountBadge');
+    if (badge) badge.textContent = Object.keys(getWL()).length;
+  }
+  updateBadge();
+
+  function openWishlistPanel() {
+    renderWL();
+    document.getElementById('wlOverlay').classList.add('open');
+    document.getElementById('wlPanel').classList.add('open');
+  }
+  function closeWishlistPanel() {
+    document.getElementById('wlOverlay').classList.remove('open');
+    document.getElementById('wlPanel').classList.remove('open');
+  }
+
+  function renderWL() {
+    const body = document.getElementById('wlBody');
+    const footer = document.getElementById('wlFooter');
+    // Read fresh every time panel opens
+    const items = Object.values(getWL());
+
+    if (items.length === 0) {
+      body.innerHTML = `
+        <div class="wl-empty">
+          <span class="wl-empty-icon">💝</span>
+          <div class="wl-empty-title">Wishlist is Empty</div>
+          <p class="wl-empty-sub">You haven't saved any items yet.<br>Go shopping and heart your favourites!</p>
+          <a href="/" style="display:inline-block;padding:12px 28px;background:var(--ink);color:#fff;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;margin-top:10px;">Start Shopping →</a>
+        </div>`;
+      footer.style.display = 'none';
+      return;
+    }
+
+    footer.style.display = 'block';
+    body.innerHTML = items.map((item, idx) => `
+      <div class="wl-item" style="animation-delay:${idx*0.07}s">
+        <img src="${item.img}" alt="${item.name}" class="wl-img" onerror="this.style.background='#f5f3f0'">
+        <div style="flex:1">
+          <div class="wl-name">${item.name}</div>
+          <div class="wl-price">₹${Number(item.price).toLocaleString('en-IN')}</div>
+        </div>
+        <button class="wl-remove" onclick="removeFromWL(${item.id})" title="Remove">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function removeFromWL(id) {
+    const wl = getWL();
+    delete wl[id];
+    localStorage.setItem('wishlist', JSON.stringify(wl));
+    updateBadge();
+    renderWL();
+  }
+</script>
+</body>
+</html>

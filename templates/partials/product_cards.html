@@ -1,0 +1,25 @@
+{% for product in products %}
+<div class="product-card reveal" data-category="{{ product.category }}">
+        <div class="product-img">
+            <img src="{{ product.image.url }}" alt="{{ product.product_name }}" loading="lazy">
+            <span class="product-badge badge-new">NEW</span>
+            <div class="product-actions">
+                <button class="action-btn" title="Wishlist" id="wbtn-{{ product.id }}"
+                    onclick="toggleWishlist({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image.url }}',this)">♡</button>
+                <button class="action-btn" title="Quick View"
+                    onclick="openQV({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image.url }}', '{{ product.category|escapejs }}')">👁</button>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product-category">{{ product.category }}</div>
+            <div class="product-name">{{ product.product_name }}</div>
+            <div class="product-price-row">
+                <div>
+                    <span class="product-price">₹{{ product.price }}</span>
+                    <span class="product-price-old" style="margin-left:8px">₹{{ product.price }}</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart({{ product.id }},'{{ product.product_name|escapejs }}',{{ product.price }},'{{ product.image.url }}')" title="Add to cart">+</button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
