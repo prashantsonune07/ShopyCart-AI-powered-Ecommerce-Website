@@ -518,9 +518,34 @@
     .nav-actions { gap:8px; }
     .btn-pill { padding:9px 16px; }
   }
+
+  /* ── CUSTOM CURSOR ── */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.15s ease, width 0.2s, height 0.2s;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+    opacity: 0.6;
+  }
+  @media (hover: none) { .cursor, .cursor-ring { display: none; } }
+
 </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
 <nav>
   <a href="/" class="nav-logo">Shopy<span>Cart</span></a>
   <div class="nav-actions">
@@ -553,9 +578,10 @@
   <div class="filters">
     <span class="label">Sort by Category:</span>
     {% for category in categories %}
-      <a class="filter-btn {% if selected_category|lower == category|lower %}active{% endif %}" href="{% if category == 'all' %}/all-products/{% else %}/all-products/?category={{ category|urlencode }}{% endif %}">
+      <button class="filter-btn {% if selected_category|lower == category|lower %}active{% endif %}"
+              onclick="filterCat(this, '{{ category|lower }}')">
         {% if category == 'all' %}All{% else %}{{ category }}{% endif %}
-      </a>
+      </button>
     {% endfor %}
   </div>
 
@@ -697,6 +723,70 @@
       }
     });
   });
+
+  async function filterCat(btn, cat) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const grid = document.getElementById('productsGrid');
+    const countEl = document.querySelector('.footer-note');
+
+    // Show loading state
+    grid.style.opacity = '0.4';
+
+    try {
+      const url = cat === 'all'
+        ? '/all-products/?partial=1'
+        : `/all-products/?category=${encodeURIComponent(cat)}&partial=1`;
+
+      const response = await fetch(url, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      });
+
+      const data = await response.json();
+      grid.innerHTML = data.html;
+
+      // Force images to load immediately
+      grid.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (src) { img.src = ''; img.src = src; }
+      });
+
+      if (countEl) countEl.textContent = `Showing ${data.count} products on this page.`;
+
+      // Update browser URL without reload
+      const newUrl = cat === 'all' ? '/all-products/' : `/all-products/?category=${encodeURIComponent(cat)}`;
+      window.history.replaceState({}, '', newUrl);
+
+    } catch(e) {
+      console.error('Filter failed:', e);
+    }
+
+    grid.style.opacity = '1';
+  }
+
+
+  // ── CUSTOM CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+  });
+  function animRing() {
+    rx += (mx - rx - 20) * 0.12;
+    ry += (my - ry - 20) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a, button, .product-card, .filter-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.width = '18px'; cursor.style.height = '18px'; });
+    el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; });
+  });
+
 </script>
 </body>
 </html>
