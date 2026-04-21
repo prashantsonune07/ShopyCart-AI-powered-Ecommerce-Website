@@ -159,7 +159,7 @@
       {% for message in messages %}
       <div class="msg msg-{{ message.tags }}">
         {% if message.tags == 'danger' %}⚠️{% elif message.tags == 'success' %}✅{% else %}ℹ️{% endif %}
-        {{ message }}
+        {{ message|safe }}
       </div>
       {% endfor %}
     </div>

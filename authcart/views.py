@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.views.generic import View
 from django.contrib import messages
@@ -28,29 +28,35 @@ def signup(request):
 
         try:
             if User.objects.get(username=email):
-                messages.info(request, "Email is Taken")
+                messages.info(request, "Email is already taken")
                 return render(request, 'signup.html')
-        except Exception as identifier:
+        except Exception:
             pass
 
         user = User.objects.create_user(email, email, password)
         user.is_active = False
         user.save()
 
-        # ── Use the real deployed domain, not localhost ──
+        # Build the correct domain from the live request (works on Render)
         domain = request.get_host()
         protocol = 'https' if request.is_secure() else 'http'
+        uid   = urlsafe_base64_encode(force_bytes(user.pk))
+        token = generate_token.make_token(user)
 
-        email_subject = "Activate Your ShopyCart Account"
-        message = render_to_string('activate.html', {
-            'user': user,
-            'domain': domain,
-            'protocol': protocol,
-            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            'token': generate_token.make_token(user),
-        })
+        # Activation link with trailing slash to match urls.py pattern
+        activation_link = f"{protocol}://{domain}/auth/activate/{uid}/{token}/"
 
+        # Try to send email
+        email_sent = False
         try:
+            email_subject = "Activate Your ShopyCart Account"
+            message = render_to_string('activate.html', {
+                'user':     user,
+                'domain':   domain,
+                'protocol': protocol,
+                'uid':      uid,
+                'token':    token,
+            })
             email_message = EmailMessage(
                 email_subject,
                 message,
@@ -58,17 +64,21 @@ def signup(request):
                 [email]
             )
             email_message.send()
+            email_sent = True
+        except Exception:
+            pass
+
+        if email_sent:
             messages.success(
                 request,
-                "✅ Account created! Please check your email and click the activation link."
+                "Account created! Check your email and click the activation link."
             )
-        except Exception as e:
-            # If email fails, show the activation link directly on screen as fallback
-            activation_link = f"{protocol}://{domain}/auth/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{generate_token.make_token(user)}/"
+        else:
+            # Email not configured - show clickable link directly on login page
             messages.warning(
                 request,
-                f"Account created but email could not be sent. "
-                f"Please click this link to activate your account: {activation_link}"
+                f'Account created! Email could not be sent. '
+                f'Click here to activate: <a href="{activation_link}">{activation_link}</a>'
             )
 
         return redirect('/auth/login/')
@@ -79,25 +89,25 @@ def signup(request):
 class ActivateAccountView(View):
     def get(self, request, uidb64, token):
         try:
-            uid = force_text(urlsafe_base64_decode(uidb64))
+            uid  = force_text(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=uid)
-        except Exception as identifier:
+        except Exception:
             user = None
 
         if user is not None and generate_token.check_token(user, token):
             user.is_active = True
             user.save()
-            messages.success(request, "✅ Account Activated Successfully! You can now sign in.")
-            return redirect('/auth/login')
+            messages.success(request, "Account Activated Successfully! You can now sign in.")
+            return redirect('/auth/login/')
 
         return render(request, 'activatefail.html')
 
 
 def handlelogin(request):
     if request.method == "POST":
-        username = request.POST['email']
+        username     = request.POST['email']
         userpassword = request.POST['pass1']
-        myuser = authenticate(username=username, password=userpassword)
+        myuser       = authenticate(username=username, password=userpassword)
 
         if myuser is not None:
             login(request, myuser)
@@ -105,15 +115,15 @@ def handlelogin(request):
             return redirect('/')
         else:
             messages.error(request, "Invalid Credentials")
-            return redirect('/auth/login')
+            return redirect('/auth/login/')
 
     return render(request, 'login.html')
 
 
 def handlelogout(request):
     logout(request)
-    messages.info(request, "Logout Success")
-    return redirect('/auth/login')
+    messages.info(request, "Logged out successfully")
+    return redirect('/auth/login/')
 
 
 class RequestResetEmailView(View):
@@ -122,22 +132,25 @@ class RequestResetEmailView(View):
 
     def post(self, request):
         email = request.POST['email']
-        user = User.objects.filter(email=email)
+        user  = User.objects.filter(email=email)
 
         if user.exists():
-            # ── Use the real deployed domain, not localhost ──
-            domain = request.get_host()
+            domain   = request.get_host()
             protocol = 'https' if request.is_secure() else 'http'
+            uid      = urlsafe_base64_encode(force_bytes(user[0].pk))
+            token    = PasswordResetTokenGenerator().make_token(user[0])
 
-            email_subject = '[ShopyCart] Reset Your Password'
-            message = render_to_string('reset-user-password.html', {
-                'domain': domain,
-                'protocol': protocol,
-                'uid': urlsafe_base64_encode(force_bytes(user[0].pk)),
-                'token': PasswordResetTokenGenerator().make_token(user[0]),
-            })
+            reset_link = f"{protocol}://{domain}/auth/set-new-password/{uid}/{token}/"
 
+            email_sent = False
             try:
+                email_subject = "[ShopyCart] Reset Your Password"
+                message = render_to_string('reset-user-password.html', {
+                    'domain':   domain,
+                    'protocol': protocol,
+                    'uid':      uid,
+                    'token':    token,
+                })
                 email_message = EmailMessage(
                     email_subject,
                     message,
@@ -145,17 +158,18 @@ class RequestResetEmailView(View):
                     [email]
                 )
                 email_message.send()
-                messages.info(
-                    request,
-                    "✅ Password reset link has been sent to your email."
-                )
-            except Exception as e:
-                reset_link = f"{protocol}://{domain}/auth/reset-password/{urlsafe_base64_encode(force_bytes(user[0].pk))}/{PasswordResetTokenGenerator().make_token(user[0])}/"
+                email_sent = True
+            except Exception:
+                pass
+
+            if email_sent:
+                messages.info(request, "Password reset link sent to your email.")
+            else:
                 messages.warning(
                     request,
-                    f"Could not send email. Please use this link to reset your password: {reset_link}"
+                    f'Email could not be sent. '
+                    f'Click here to reset your password: <a href="{reset_link}">{reset_link}</a>'
                 )
-
         else:
             messages.warning(request, "No account found with that email address.")
 
@@ -164,29 +178,20 @@ class RequestResetEmailView(View):
 
 class SetNewPasswordView(View):
     def get(self, request, uidb64, token):
-        context = {
-            'uidb64': uidb64,
-            'token': token,
-        }
+        context = {'uidb64': uidb64, 'token': token}
         try:
             user_id = force_text(urlsafe_base64_decode(uidb64))
-            user = User.objects.get(pk=user_id)
-
+            user    = User.objects.get(pk=user_id)
             if not PasswordResetTokenGenerator().check_token(user, token):
                 messages.warning(request, "Password Reset Link is Invalid or Expired")
                 return render(request, 'request-reset-email.html')
-
-        except DjangoUnicodeDecodeError as identifier:
+        except DjangoUnicodeDecodeError:
             pass
-
         return render(request, 'set-new-password.html', context)
 
     def post(self, request, uidb64, token):
-        context = {
-            'uidb64': uidb64,
-            'token': token,
-        }
-        password = request.POST['pass1']
+        context          = {'uidb64': uidb64, 'token': token}
+        password         = request.POST['pass1']
         confirm_password = request.POST['pass2']
 
         if password != confirm_password:
@@ -195,12 +200,11 @@ class SetNewPasswordView(View):
 
         try:
             user_id = force_text(urlsafe_base64_decode(uidb64))
-            user = User.objects.get(pk=user_id)
+            user    = User.objects.get(pk=user_id)
             user.set_password(password)
             user.save()
-            messages.success(request, "✅ Password Reset Successful! Please login with your new password.")
+            messages.success(request, "Password Reset Successful! Please login with your new password.")
             return redirect('/auth/login/')
-
-        except DjangoUnicodeDecodeError as identifier:
-            messages.error(request, "Something Went Wrong. Please try again.")
+        except DjangoUnicodeDecodeError:
+            messages.error(request, "Something went wrong. Please try again.")
             return render(request, 'set-new-password.html', context)
