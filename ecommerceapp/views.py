@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 from ecommerceapp.models import Contact, Product, OrderUpdate, Orders
@@ -61,9 +61,6 @@ def index(request):
         })
 
     return render(request, "index.html", content)
-
-
-
 
 
 def checkout(request):
@@ -147,8 +144,6 @@ def allproducts(request):
     return render(request, 'allproducts.html', context)
 
 
-
-
 def profile(request):
     if not request.user.is_authenticated:
         messages.warning(request, "Login & Try Again")
@@ -172,3 +167,8 @@ def profile(request):
 
     context = {"items": items, "status": status}
     return render(request, "profile.html", context)
+
+
+# ← ADDED: Ping endpoint for UptimeRobot keep-alive
+def ping(request):
+    return HttpResponse("OK")

@@ -8,4 +8,5 @@ urlpatterns = [
     path('checkout/', views.checkout, name="Checkout"),
     path('payment/', views.payment, name="payment"),
     path('groupdeals/', views.groupdeals, name="groupdeals"),
+    path('ping/', views.ping, name="ping"),  # ← ADDED for UptimeRobot keep-alive
 ]
