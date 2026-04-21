@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 from ecommerceapp.models import Contact, Product, OrderUpdate, Orders
@@ -61,6 +61,9 @@ def index(request):
         })
 
     return render(request, "index.html", content)
+
+
+
 
 
 def checkout(request):
@@ -131,17 +134,28 @@ def allproducts(request):
     categories = ['all'] + list(
         Product.objects.values_list('category', flat=True).distinct().order_by('category')
     )
+
     paginator = Paginator(products, 20)
     page_obj = paginator.get_page(request.GET.get('page'))
 
     context = {
         'products': page_obj.object_list,
         'page_obj': page_obj,
-        'total_products': products.count(),
+        'total_products': Product.objects.count(),
+        'filtered_count': products.count(),
         'categories': categories,
         'selected_category': selected_category,
     }
+
+    # AJAX partial request for category filter
+    if request.GET.get('partial') == '1':
+        from django.template.loader import render_to_string
+        html = render_to_string('allproducts_cards.html', context, request=request)
+        return JsonResponse({'html': html, 'count': products.count()})
+
     return render(request, 'allproducts.html', context)
+
+
 
 
 def profile(request):
@@ -167,8 +181,3 @@ def profile(request):
 
     context = {"items": items, "status": status}
     return render(request, "profile.html", context)
-
-
-# ← ADDED: Ping endpoint for UptimeRobot keep-alive
-def ping(request):
-    return HttpResponse("OK")

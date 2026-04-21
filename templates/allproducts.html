@@ -579,8 +579,9 @@
     <span class="label">Sort by Category:</span>
     {% for category in categories %}
       <button class="filter-btn {% if selected_category|lower == category|lower %}active{% endif %}"
-              onclick="filterCat(this, '{{ category|lower }}')">
-        {% if category == 'all' %}All{% else %}{{ category }}{% endif %}
+              data-cat="{{ category }}"
+              onclick="filterCat(this, '{{ category }}')">
+        {{ category|capfirst }}
       </button>
     {% endfor %}
   </div>
@@ -592,7 +593,8 @@
     {% for product in products %}
     <div class="product-card" data-category="{{ product.category|lower }}">
       <div class="product-img">
-        <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="eager" fetchpriority="high">
+        <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="eager" fetchpriority="high"
+             onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80'">
         <span class="badge">NEW</span>
         <div class="product-actions">
           <button class="action-btn" title="View Picture" onclick="openImage('{{ product.image|escapejs }}', '{{ product.product_name|escapejs }}')">👁</button>
@@ -725,44 +727,57 @@
   });
 
   async function filterCat(btn, cat) {
-    // Update active button
+    // Update active state
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
     const grid = document.getElementById('productsGrid');
     const countEl = document.querySelector('.footer-note');
 
-    // Show loading state
-    grid.style.opacity = '0.4';
+    // Fade out
+    grid.style.opacity = '0.3';
+    grid.style.transition = 'opacity 0.25s';
 
     try {
-      const url = cat === 'all'
+      const isAll = cat.toLowerCase() === 'all';
+      const url = isAll
         ? '/all-products/?partial=1'
         : `/all-products/?category=${encodeURIComponent(cat)}&partial=1`;
 
-      const response = await fetch(url, {
-        headers: { 'X-Requested-With': 'XMLHttpRequest' }
-      });
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Server error ' + response.status);
 
       const data = await response.json();
       grid.innerHTML = data.html;
 
-      // Force images to load immediately
-      grid.querySelectorAll('img').forEach(img => {
-        const src = img.getAttribute('src');
-        if (src) { img.src = ''; img.src = src; }
+      // Restore wishlist hearts
+      const wl = getWL();
+      grid.querySelectorAll('[id^="wbtn-"]').forEach(b => {
+        const id = b.id.replace('wbtn-', '');
+        if (wl[id]) b.textContent = '❤️';
       });
 
-      if (countEl) countEl.textContent = `Showing ${data.count} products on this page.`;
+      if (countEl) countEl.textContent = `Showing ${data.count} products in "${cat === 'all' ? 'All' : cat}" category.`;
 
-      // Update browser URL without reload
-      const newUrl = cat === 'all' ? '/all-products/' : `/all-products/?category=${encodeURIComponent(cat)}`;
+      // Update URL
+      const newUrl = isAll ? '/all-products/' : `/all-products/?category=${encodeURIComponent(cat)}`;
       window.history.replaceState({}, '', newUrl);
 
     } catch(e) {
-      console.error('Filter failed:', e);
+      console.error('Filter error:', e);
+      // Fallback: hide/show cards client-side
+      const isAll = cat.toLowerCase() === 'all';
+      let shown = 0;
+      document.querySelectorAll('.product-card').forEach(card => {
+        const cardCat = (card.dataset.category || '').toLowerCase();
+        const show = isAll || cardCat === cat.toLowerCase();
+        card.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (countEl) countEl.textContent = `Showing ${shown} products.`;
     }
 
+    // Fade in
     grid.style.opacity = '1';
   }
 
