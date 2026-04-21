@@ -2251,7 +2251,7 @@
             {% for product in products %}
             <div class="product-card reveal" data-category="{{ product.category }}">
                 <div class="product-img">
-                    <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="lazy">
+                    <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="eager" fetchpriority="high">
                     <!-- Badge -->
                     <span class="product-badge badge-new">NEW
                     </span>
@@ -2592,7 +2592,7 @@
             grid.innerHTML = items.map(p => `
     <div class="product-card reveal" data-category="${p.category}">
       <div class="product-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <img src="${p.img}" alt="${p.name}" loading="eager" fetchpriority="high">
         <span class="product-badge ${badgeColors[p.badge]}">${p.badge.toUpperCase()}</span>
         <div class="product-actions">
                         <button class="action-btn" title="Wishlist" id="wbtn-${p.id}" onclick="toggleWishlist(${p.id},'${p.name.replace(/'/g, "\\'")}',${p.price},'${p.img}',this)">${wishlist[p.id] ? '❤️' : '♡'}</button>

@@ -566,7 +566,7 @@
     {% for product in products %}
     <div class="product-card" data-category="{{ product.category|lower }}">
       <div class="product-img">
-        <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="lazy">
+        <img src="{{ product.image }}" alt="{{ product.product_name }}" loading="eager" fetchpriority="high">
         <span class="badge">NEW</span>
         <div class="product-actions">
           <button class="action-btn" title="View Picture" onclick="openImage('{{ product.image|escapejs }}', '{{ product.product_name|escapejs }}')">👁</button>
