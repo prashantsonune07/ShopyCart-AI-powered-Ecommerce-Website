@@ -1,67 +1,46 @@
 # ShopyCart — AI-Powered E-Commerce Platform
+
 ### Smart Shopping with Group Deals & Claude AI Assistant
 
 > **"Shop Smarter, Save Together"**
-> ShopyCart combines AI-powered personalization with group buying to give every shopper the best deals.
+> ShopyCart ensures every shopper finds the best deal — powered by AI that understands your taste and group buying that rewards community.
 
 ---
 
-## 🌐 Live Demo
+🌐 **Live Demo:** [shopycart-ai-powered-ecommerce-website.onrender.com](https://shopycart-ai-powered-ecommerce-website.onrender.com)
 
-🛒 **[https://shopycart-ai-powered-ecommerce-website.onrender.com](https://shopycart-ai-powered-ecommerce-website.onrender.com)**
 
----
+## What is ShopyCart?
 
-## ✨ What is ShopyCart?
+ShopyCart is a full-stack Django e-commerce platform built for the modern Indian shopper. It uses **Claude AI** as a personal shopping assistant and features a unique **Group Buying** system where friends join deals together to unlock massive discounts — the more people join, the lower the price drops.
 
-ShopyCart is a full-stack Django e-commerce platform built for the modern Indian shopper. It uses **Claude AI** as a personal shopping assistant and features a unique **Group Buying** system where friends can join deals together to unlock massive discounts — the more people join, the lower the price drops.
 
----
+### Core Flow
 
-## 🚀 Features
+```
+User Visits  →  AI Recommends  →  User Explores  →  Joins Group Deal  →  Saves Big
+(homepage)     (Claude-powered)   (154+ products)   (friends invited)    (up to 70% off)
+                                                           ↓
+                                                   If goal not reached:
+                                                   No charge (zero risk)
+```
 
-- 🤖 **AI Personal Shopper** — Powered by Claude AI, helps users find products, compare options, add to cart, and manage wishlist through natural conversation
-- 🤝 **Group Buying Deals** — Join live group deals with friends; price drops as more people join (up to 70% off)
-- 🛍️ **Smart Product Discovery** — Category filters, AI score rankings, trending picks, and personalized recommendations
-- ❤️ **Wishlist** — Save products and add all to cart in one click
-- ⚖️ **Product Compare** — Compare up to 4 products side-by-side with AI score and best price badges
-- 🔐 **Auth System** — Full signup/login with email verification and password reset
-- 📦 **Order Management** — Place orders, track status, view order history in profile
-- 💳 **Checkout & Payment** — Secure checkout with UPI, Card, NetBanking, and COD options
-- 📱 **Responsive Design** — Works beautifully on desktop, tablet, and mobile
-- 🎨 **Modern UI** — Custom cursor animation, smooth transitions, Bebas Neue typography, dark/light sections
 
----
+## Features
 
-## 🖼️ Screenshots
+- 🤖 AI Personal Shopper — Claude-powered chat with natural language commands
+- 🤝 Group Buying Deals — Live deals where more joiners = lower price
+- 🛍️ Smart Product Discovery — Category filters, AI score rankings, trending picks
+- ❤️ Wishlist — Save products and add all to cart in one click
+- ⚖️ Product Compare — Compare up to 4 products side-by-side
+- 🔐 Auth System — Signup/login with email verification and password reset
+- 📦 Order Management — Place orders, track status, view history in profile
+- 💳 Checkout & Payment — UPI, Card, NetBanking, and COD options
+- 📱 Responsive Design — Works on desktop, tablet, and mobile
+- 🎨 Modern UI — Custom cursor animation, smooth transitions, aesthetic typography
 
-| Homepage | AI Chatbot | Group Deals |
-|---|---|---|
-| Hero with AI banner and product grid | Claude-powered chat with smart commands | Live deals with progress bars and join flow |
 
-| All Products | Checkout | Profile |
-|---|---|---|
-| Category filter with 154+ products | Multi-step payment flow with confetti | Order history with tracking |
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| **Backend** | Django 4.2.16 (Python 3.11) |
-| **Database** | PostgreSQL (Render) / SQLite (local) |
-| **AI** | Claude Sonnet via Anthropic API |
-| **Frontend** | Vanilla HTML, CSS, JavaScript |
-| **Fonts** | Bebas Neue, DM Sans (Google Fonts) |
-| **Images** | Unsplash (URL-based, no file storage needed) |
-| **Auth** | Django built-in + email verification |
-| **Deployment** | Render (Web Service + PostgreSQL) |
-| **Static Files** | WhiteNoise |
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 ecommerce/
@@ -71,9 +50,9 @@ ecommerce/
 │   └── wsgi.py
 ├── ecommerceapp/
 │   ├── models.py            # Product, Orders, OrderUpdate, Contact
-│   ├── views.py             # All main views + AJAX handlers
+│   ├── views.py             # All main views + AJAX category filter
 │   ├── urls.py              # App URL patterns
-│   └── admin.py             # Django admin config
+│   └── admin.py             # Django admin configuration
 ├── authcart/
 │   ├── views.py             # Login, signup, password reset
 │   ├── urls.py              # Auth URL patterns
@@ -81,75 +60,102 @@ ecommerce/
 ├── templates/
 │   ├── index.html           # Homepage with AI banner + group deals
 │   ├── allproducts.html     # Full catalog with category filters
-│   ├── allproducts_cards.html # AJAX partial for category filtering
 │   ├── groupdeals.html      # Group deals page with join modal
 │   ├── checkout.html        # Checkout with address form
 │   ├── payment.html         # Payment methods page
 │   ├── paymentstatus.html   # Order confirmation with confetti
 │   ├── profile.html         # My orders + order tracking
-│   ├── login.html           # Animated login page
-│   └── signup.html          # Animated signup page
+│   ├── login.html           # Animated split-screen login
+│   └── signup.html          # Animated split-screen signup
 ├── static/                  # CSS, JS, images
-├── requirements.txt
+├── requirements.txt         # Python dependencies
 ├── build.sh                 # Render build script
 └── manage.py
 ```
 
 ---
 
-## ⚙️ Local Setup
+
+## Local Setup
+
 
 ### Prerequisites
-- Python 3.11+
+
+- Python 3.11+ (`python --version`)
+- pip
 - Git
 
-### Steps
 
-**1. Clone the repo:**
+### Installation
+
 ```bash
+# Clone the repo
 git clone https://github.com/prashantsonune07/ShopyCart-AI-powered-Ecommerce-Website.git
 cd ShopyCart-AI-powered-Ecommerce-Website/ecommerce
-```
 
-**2. Create virtual environment:**
-```bash
+# Create virtual environment
 python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # Mac/Linux
-```
+venv\Scripts\activate
 
-**3. Install dependencies:**
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-**4. Run migrations:**
-```bash
+# Run migrations
 python manage.py migrate
-```
 
-**5. Create superuser (for admin panel):**
-```bash
-python manage.py createsuperuser
-```
-
-**6. Load sample products:**
-```bash
+# Load sample products
 python manage.py loaddata products.json
-```
 
-**7. Start the server:**
-```bash
+# Start the server
 python manage.py runserver
 ```
 
-Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
+Open your browser at: `http://127.0.0.1:8000`
+
+
+### Windows — Quick Start
+
+Open CMD in your project folder and run:
+```bash
+python manage.py runserver
+```
+Then open `http://127.0.0.1:8000` in your browser.
 
 ---
 
-## 🌍 Deployment on Render
 
-### Environment Variables Required
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **AI Model** | Claude Sonnet via Anthropic API |
+| **Backend** | Python · Django 4.2 · Gunicorn |
+| **Database** | PostgreSQL (Render) · SQLite (local) |
+| **Frontend** | Vanilla HTML · CSS · JavaScript |
+| **Fonts** | Bebas Neue · DM Sans (Google Fonts) |
+| **Images** | Unsplash (URL-based, no file storage) |
+| **Deployment** | Render (Web Service + PostgreSQL) |
+| **Static Files** | WhiteNoise |
+
+---
+
+
+## AI Shopping Assistant Commands
+
+The Claude-powered chatbot understands natural language:
+
+| What you type | What happens |
+|---|---|
+| `"add headphones to cart"` | Adds matching product to cart instantly |
+| `"wishlist the dress"` | Saves product to wishlist |
+| `"show my cart"` | Displays cart items with total |
+| `"show all products"` | Shows mini product grid in chat |
+| `"checkout"` | Redirects to checkout page |
+| `"best deals today"` | Shows top discounted products with cards |
+| Click chip buttons | Instant filtered product cards with actions |
+
+
+## Environment Variables (Render)
 
 | Key | Description |
 |---|---|
@@ -158,57 +164,7 @@ Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 | `DEBUG` | Set to `False` in production |
 | `PYTHON_VERSION` | Set to `3.11.9` |
 
-### Build & Start Commands
-
-```bash
-# Build Command
-./build.sh
-
-# Start Command
-gunicorn ecommerce.wsgi:application
-```
-
 ---
 
-## 🤖 AI Shopping Assistant Commands
-
-The Claude-powered chatbot understands natural language:
-
-| Command | Action |
-|---|---|
-| `"add headphones to cart"` | Adds matching product to cart |
-| `"wishlist the dress"` | Saves to wishlist |
-| `"show my cart"` | Displays cart with total |
-| `"show all products"` | Shows mini product grid |
-| `"checkout"` | Redirects to checkout |
-| `"best deals today"` | Shows top discounted products |
-| Click chip buttons | Instant filtered product cards |
-
----
-
-## 🗃️ Database Models
-
-```python
-Product       # product_name, category, subcategory, price, desc, image (URL)
-Orders        # items_json, amount, name, email, address, paymentstatus
-OrderUpdate   # order_id, update_desc, delivered, timestamp
-Contact       # name, email, desc, phonenumber
-```
-
----
-
-## 👨‍💻 Author
-
-**Prashant Sonune**
-- GitHub: [@prashantsonune07](https://github.com/prashantsonune07)
-- Live: [shopycart-ai-powered-ecommerce-website.onrender.com](https://shopycart-ai-powered-ecommerce-website.onrender.com)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
 
 *Built with ♥ in India — Powered by Django & Claude AI*
