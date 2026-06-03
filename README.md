@@ -7,7 +7,7 @@
 
 ---
 
-🌐 **Live Demo:** [shopycart-ai-powered-ecommerce-website.onrender.com](https://shopycart-ai-powered-ecommerce-website.onrender.com)
+🌐 **Live Demo:** [shopycart-ai-powered-ecommerce-website.onrender.com](https://shopycart-ai-powered-ecommerce-website-dp5h.onrender.com)
 
 
 ## What is ShopyCart?
